@@ -1,63 +1,83 @@
-/*=============================
-      Scroll Animation
-=============================*/
+/* ==========================================
+            ILIA FOREX
+            script.js
+========================================== */
 
-.hidden{
+document.addEventListener("DOMContentLoaded", () => {
 
-opacity:0;
+    /* ==========================
+            FAQ
+    ========================== */
 
-transform:translateY(40px);
+    const faqItems = document.querySelectorAll(".faq-item");
 
-transition:.8s ease;
+    faqItems.forEach(item => {
 
-}
+        const question = item.querySelector(".faq-question");
 
-.show{
+        question.addEventListener("click", () => {
 
-opacity:1;
+            faqItems.forEach(other => {
 
-transform:translateY(0);
+                if (other !== item) {
 
-}
+                    other.classList.remove("active");
 
-/*=============================
-          Toast
-=============================*/
+                }
 
-.toast{
+            });
 
-position:fixed;
+            item.classList.toggle("active");
 
-left:50%;
+        });
 
-bottom:35px;
+    });
 
-transform:translateX(-50%) translateY(30px);
+    /* ==========================
+        انیمیشن هنگام اسکرول
+    ========================== */
 
-background:#00ff88;
+    const observer = new IntersectionObserver((entries) => {
 
-color:#000;
+        entries.forEach(entry => {
 
-padding:14px 26px;
+            if (entry.isIntersecting) {
 
-border-radius:50px;
+                entry.target.classList.add("show");
 
-font-weight:700;
+            }
 
-opacity:0;
+        });
 
-transition:.3s;
+    }, {
+        threshold: 0.15
+    });
 
-z-index:9999;
+    document.querySelectorAll(
+        ".hero,.about,.faq,.stat,.chip,.about-card,.faq-item"
+    ).forEach(el => {
 
-box-shadow:0 15px 40px rgba(0,255,136,.35);
+        el.classList.add("hidden");
 
-}
+        observer.observe(el);
 
-.toast.show{
+    });
 
-opacity:1;
+    /* ==========================
+        افکت سه‌بعدی عکس
+    ========================== */
 
-transform:translateX(-50%) translateY(0);
+    const profile = document.querySelector(".profile-ring");
 
-                     }
+    if (profile) {
+
+        document.addEventListener("mousemove", (e) => {
+
+            const x = (window.innerWidth / 2 - e.clientX) / 45;
+
+            const y = (window.innerHeight / 2 - e.clientY) / 45;
+
+            profile.style.transform =
+                `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+        });
