@@ -1,93 +1,63 @@
-/*=========================
-      کپی اینستاگرام
-=========================*/
+/*=============================
+      Scroll Animation
+=============================*/
 
-function copyInstagram(){
+.hidden{
 
-navigator.clipboard.writeText("@iliafx_vip");
+opacity:0;
 
-const btn=document.querySelectorAll(".dark");
+transform:translateY(40px);
 
-btn.forEach(item=>{
-
-const old=item.innerHTML;
-
-item.innerHTML="<i class='fa-solid fa-check'></i> کپی شد";
-
-setTimeout(()=>{
-
-item.innerHTML=old;
-
-},2000);
-
-});
+transition:.8s ease;
 
 }
 
-/*=========================
-      FAQ
-=========================*/
+.show{
 
-document.querySelectorAll(".faq-box").forEach(box=>{
+opacity:1;
 
-const btn=box.querySelector(".question");
-
-btn.addEventListener("click",()=>{
-
-document.querySelectorAll(".faq-box").forEach(item=>{
-
-if(item!==box){
-
-item.classList.remove("active");
+transform:translateY(0);
 
 }
 
-});
+/*=============================
+          Toast
+=============================*/
 
-box.classList.toggle("active");
+.toast{
 
-});
+position:fixed;
 
-});
+left:50%;
 
-/*=========================
-      افکت ورود
-=========================*/
+bottom:35px;
 
-const observer=new IntersectionObserver(entries=>{
+transform:translateX(-50%) translateY(30px);
 
-entries.forEach(entry=>{
+background:#00ff88;
 
-if(entry.isIntersecting){
+color:#000;
 
-entry.target.classList.add("show");
+padding:14px 26px;
+
+border-radius:50px;
+
+font-weight:700;
+
+opacity:0;
+
+transition:.3s;
+
+z-index:9999;
+
+box-shadow:0 15px 40px rgba(0,255,136,.35);
 
 }
 
-});
+.toast.show{
 
-},{threshold:.2});
+opacity:1;
 
-document.querySelectorAll(".stat-card,.service-card,.instagram-card,.faq-box").forEach(el=>{
+transform:translateX(-50%) translateY(0);
 
-el.classList.add("hidden");
-
-observer.observe(el);
-
-});
-
-/*=========================
-      افکت نور روی موس
-=========================*/
-
-document.addEventListener("mousemove",(e)=>{
-
-const x=e.clientX/window.innerWidth*100;
-
-const y=e.clientY/window.innerHeight*100;
-
-document.documentElement.style.setProperty("--x",x+"%");
-
-document.documentElement.style.setProperty("--y",y+"%");
-
-});
+                     }
