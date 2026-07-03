@@ -81,3 +81,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 `rotateY(${x}deg) rotateX(${-y}deg)`;
 
         });
+                alert("جاوااسکریپت اجرا شد");
