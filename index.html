@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ILIA FOREX</title>
 
@@ -17,296 +17,193 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<div class="bg-blur one"></div>
-<div class="bg-blur two"></div>
+<div class="background">
 
-<header class="header">
+<div class="blur blur1"></div>
 
-<div class="logo">
-<span>ILIA</span>
-<span>FOREX</span>
-</div>
+<div class="blur blur2"></div>
 
-<nav class="menu">
-
-<a href="#home">خانه</a>
-
-<a href="#services">خدمات</a>
-
-<a href="#faq">سوالات متداول</a>
-
-<a href="#contact">ارتباط</a>
-
-</nav>
-
-</header>
-
-<main>
-
-<section id="home" class="hero">
-
-<div class="glass-card">
-
-<div class="avatar-area">
-
-<input
-type="file"
-id="imageUpload"
-accept="image/*"
-hidden>
-
-<label for="imageUpload" class="avatar">
-
-<img
-id="avatarPreview"
-src="profile.jpg"
-alt="profile">
-
-<div class="avatar-overlay">
-
-<span>+</span>
+<div class="blur blur3"></div>
 
 </div>
+
+<div class="container">
+
+<div class="glass">
+
+<div class="left">
+
+<label class="profile">
+
+<img src="profile.jpg" id="avatar" alt="Profile">
 
 </label>
-
-</div>
 
 <h1>ILIA FOREX</h1>
 
 <p>
 
-آموزش تخصصی فارکس و بازارهای مالی
+Professional Forex Trader
 
 </p>
 
-<div class="hero-buttons">
+<div class="socials">
 
-<a href="#" class="btn primary">
+<button onclick="copyID()" class="social insta">
 
-شروع همکاری
+<i class="fab fa-instagram"></i>
 
-</a>
-
-<a href="#" class="btn secondary">
-
-نمونه نتایج
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-<section id="services" class="social-section">
-
-<div class="section-title">
-<h2>ارتباط با من</h2>
-<p>از طریق شبکه‌های اجتماعی با من در ارتباط باشید.</p>
-</div>
-
-<div class="social-card">
-
-<div class="social-left">
-
-<h3>Instagram</h3>
-
-<p class="id" id="instaText">
-@ilia.forex
-</p>
-
-</div>
-
-<div class="social-right">
-
-<button id="copyBtn" onclick="copyID()">
-
-کپی آیدی
+Instagram
 
 </button>
 
-<a href="#" class="visit">
+<a href="#" class="social telegram">
 
-ورود
+<i class="fab fa-telegram"></i>
+
+Telegram
+
+</a>
+
+<a href="#" class="social whatsapp">
+
+<i class="fab fa-whatsapp"></i>
+
+WhatsApp
 
 </a>
 
 </div>
 
 </div>
+
+<div class="right">
 
 <div class="stats">
 
-<div class="stat">
+<div class="card">
 
-<h2>+500</h2>
+<h2>500+</h2>
 
-<span>دانشجو</span>
-
-</div>
-
-<div class="stat">
-
-<h2>4.9★</h2>
-
-<span>رضایت</span>
+<span>Students</span>
 
 </div>
 
-<div class="stat">
+<div class="card">
+
+<h2>98%</h2>
+
+<span>Success</span>
+
+</div>
+
+<div class="card">
 
 <h2>24/7</h2>
 
-<span>پشتیبانی</span>
+<span>Support</span>
 
 </div>
 
 </div>
+<div class="actions">
 
-</section>
+<a href="#" class="btn primary">
+شروع همکاری
+</a>
 
-<section class="features">
+<a href="#" class="btn secondary">
+نمونه کارها
+</a>
 
-<div class="feature-card">
-
-<div class="icon">📈</div>
-
-<h3>تحلیل بازار</h3>
-
-<p>
-تحلیل حرفه‌ای بازارهای مالی
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="icon">💰</div>
-
-<h3>مدیریت سرمایه</h3>
-
-<p>
-آموزش مدیریت ریسک
-</p>
+<a href="#" class="btn third">
+ارتباط با من
+</a>
 
 </div>
 
-<div class="feature-card">
+<div class="faq">
 
-<div class="icon">🎯</div>
-
-<h3>سیگنال</h3>
-
-<p>
-ارائه سیگنال‌های معاملاتی
-</p>
-
-</div>
-
-  </section>
-  <section id="faq" class="faq-section">
-
-<div class="section-title">
-<h2>سوالات متداول</h2>
-<p>پاسخ سوالات پرتکرار کاربران</p>
-</div>
-
-<div class="faq-item">
+<div class="faq-box">
 
 <button class="question">
-آیا آموزش مناسب افراد مبتدی است؟
-<span>+</span>
+
+آیا آموزش مناسب مبتدی‌هاست؟
+
+<i class="fa-solid fa-plus"></i>
+
 </button>
 
 <div class="answer">
-<p>
-بله، آموزش‌ها از سطح مبتدی تا حرفه‌ای طراحی شده‌اند.
-</p>
-</div>
+
+بله، دوره از صفر تا حرفه‌ای طراحی شده است.
 
 </div>
 
-<div class="faq-item">
+</div>
+
+<div class="faq-box">
 
 <button class="question">
+
 آیا پشتیبانی دارید؟
-<span>+</span>
+
+<i class="fa-solid fa-plus"></i>
+
 </button>
 
 <div class="answer">
-<p>
-بله، پس از ثبت‌نام پشتیبانی کامل ارائه می‌شود.
-</p>
-</div>
+
+بله، پشتیبانی کامل بعد از ثبت‌نام انجام می‌شود.
 
 </div>
 
-<div class="faq-item">
+</div>
+
+<div class="faq-box">
 
 <button class="question">
-از چه بروکری استفاده می‌کنید؟
-<span>+</span>
+
+سیگنال هم ارائه می‌شود؟
+
+<i class="fa-solid fa-plus"></i>
+
 </button>
 
 <div class="answer">
-<p>
-با بروکرهای معتبر بین‌المللی کار می‌کنیم.
-</p>
+
+بله، برای اعضای ویژه ارائه می‌شود.
+
+</div>
+
 </div>
 
 </div>
 
-<div class="faq-item">
-
-<button class="question">
-آیا سیگنال هم ارائه می‌شود؟
-<span>+</span>
-</button>
-
-<div class="answer">
-<p>
-بله، در پلن‌های مربوطه ارائه می‌شود.
-</p>
 </div>
 
 </div>
 
-</section>
-
-<footer id="contact">
-
-<div class="footer-logo">
-
-ILIA FOREX
-
-</div>
+<footer>
 
 <p>
 
-© تمامی حقوق محفوظ است.
+© 2025 ILIA FOREX | All Rights Reserved
 
 </p>
-
-<div class="footer-links">
-
-<a href="#">Instagram</a>
-
-<a href="#">Telegram</a>
-
-<a href="#">WhatsApp</a>
-
-</div>
 
 </footer>
 
-<script src="script.js"></script>
+</div>
 
-</main>
+<script src="script.js"></script>
 
 </body>
 
