@@ -80,17 +80,6 @@ document.querySelectorAll(".faq-item").forEach(item => {
 });
 
 /* ===========================
-   ظاهر عکس پیش‌فرض
-=========================== */
-
-if (preview) {
-
-    preview.src =
-        "https://placehold.co/600x600/111111/FFFFFF?text=UPLOAD";
-
-}
-
-/* ===========================
    افکت ورود
 =========================== */
 
