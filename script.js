@@ -1,34 +1,120 @@
-// دکمه کپی اینستاگرام
-function copyID() {
-    const input = document.getElementById("insta");
+/* ===========================
+   آپلود مستقیم عکس
+=========================== */
 
-    navigator.clipboard.writeText(input.value).then(() => {
+const upload = document.getElementById("imageUpload");
+const preview = document.getElementById("avatarPreview");
 
-        const btn = document.querySelector(".copy-box button");
+if (upload && preview) {
 
-        btn.innerText = "کپی شد ✓";
+    upload.addEventListener("change", function () {
 
-        setTimeout(() => {
-            btn.innerText = "کپی";
-        }, 2000);
+        const file = this.files[0];
 
-    }).catch(() => {
-        alert("کپی انجام نشد.");
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            preview.src = e.target.result;
+
+        };
+
+        reader.readAsDataURL(file);
+
     });
+
 }
 
+/* ===========================
+   دکمه کپی اینستاگرام
+=========================== */
 
-// سوالات متداول
-const questions = document.querySelectorAll(".question");
+function copyID() {
 
-questions.forEach((question) => {
+    const text = document.getElementById("instaText").innerText;
 
-    question.addEventListener("click", () => {
+    navigator.clipboard.writeText(text);
 
-        const item = question.parentElement;
+    const btn = document.getElementById("copyBtn");
+
+    const old = btn.innerHTML;
+
+    btn.innerHTML = "✓ کپی شد";
+
+    btn.style.background = "#18ff8b";
+
+    setTimeout(() => {
+
+        btn.innerHTML = old;
+
+        btn.style.background = "";
+
+    }, 2000);
+
+}
+
+/* ===========================
+   FAQ
+=========================== */
+
+document.querySelectorAll(".faq-item").forEach(item => {
+
+    item.querySelector(".question").addEventListener("click", () => {
+
+        document.querySelectorAll(".faq-item").forEach(box => {
+
+            if (box !== item) {
+
+                box.classList.remove("active");
+
+            }
+
+        });
 
         item.classList.toggle("active");
 
     });
+
+});
+
+/* ===========================
+   ظاهر عکس پیش‌فرض
+=========================== */
+
+if (preview) {
+
+    preview.src =
+        "https://placehold.co/600x600/111111/FFFFFF?text=UPLOAD";
+
+}
+
+/* ===========================
+   افکت ورود
+=========================== */
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll(".feature-card,.stat,.social-card,.faq-item").forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = ".6s";
+
+    observer.observe(el);
 
 });
