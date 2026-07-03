@@ -1,109 +1,169 @@
-/* ===========================
-   آپلود مستقیم عکس
-=========================== */
+/*==========================
+      سوالات متداول
+==========================*/
 
-const upload = document.getElementById("imageUpload");
-const preview = document.getElementById("avatarPreview");
+document.querySelectorAll(".faq-item").forEach(item=>{
 
-if (upload && preview) {
+const btn=item.querySelector(".question");
 
-    upload.addEventListener("change", function () {
+btn.addEventListener("click",()=>{
 
-        const file = this.files[0];
+document.querySelectorAll(".faq-item").forEach(box=>{
 
-        if (!file) return;
+if(box!==item){
 
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-
-            preview.src = e.target.result;
-
-        };
-
-        reader.readAsDataURL(file);
-
-    });
+box.classList.remove("active");
 
 }
 
-/* ===========================
-   دکمه کپی اینستاگرام
-=========================== */
+});
 
-function copyID() {
+item.classList.toggle("active");
 
-    const text = document.getElementById("instaText").innerText;
+});
 
-    navigator.clipboard.writeText(text);
+});
 
-    const btn = document.getElementById("copyBtn");
+/*==========================
+      کپی اینستاگرام
+==========================*/
 
-    const old = btn.innerHTML;
+function copyInstagram(){
 
-    btn.innerHTML = "✓ کپی شد";
+const username="@ilia.forex";
 
-    btn.style.background = "#18ff8b";
+navigator.clipboard.writeText(username);
 
-    setTimeout(() => {
+const insta=document.querySelector(".instagram span");
 
-        btn.innerHTML = old;
+const old=insta.innerHTML;
 
-        btn.style.background = "";
+insta.innerHTML="کپی شد ✓";
 
-    }, 2000);
+setTimeout(()=>{
+
+insta.innerHTML=old;
+
+},2000);
 
 }
 
-/* ===========================
-   FAQ
-=========================== */
+/*==========================
+      دکمه اینستاگرام
+==========================*/
 
-document.querySelectorAll(".faq-item").forEach(item => {
+const instaBtn=document.querySelector(".instagram");
 
-    item.querySelector(".question").addEventListener("click", () => {
+if(instaBtn){
 
-        document.querySelectorAll(".faq-item").forEach(box => {
+instaBtn.addEventListener("click",(e)=>{
 
-            if (box !== item) {
+e.preventDefault();
 
-                box.classList.remove("active");
-
-            }
-
-        });
-
-        item.classList.toggle("active");
-
-    });
+copyInstagram();
 
 });
 
-/* ===========================
-   افکت ورود
-=========================== */
+}
 
-const observer = new IntersectionObserver(entries => {
+/*==========================
+      افکت سه بعدی کارت ها
+==========================*/
 
-    entries.forEach(entry => {
+document.querySelectorAll(".card").forEach(card=>{
 
-        if (entry.isIntersecting) {
+card.addEventListener("mousemove",(e)=>{
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+const rect=card.getBoundingClientRect();
 
-        }
+const x=e.clientX-rect.left;
 
-    });
+const y=e.clientY-rect.top;
+
+const rotateY=((x/rect.width)-0.5)*16;
+
+const rotateX=((y/rect.height)-0.5)*-16;
+
+card.style.transform=
+
+`perspective(700px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-8px)`;
 
 });
 
-document.querySelectorAll(".feature-card,.stat,.social-card,.faq-item").forEach(el => {
+card.addEventListener("mouseleave",()=>{
 
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = ".6s";
+card.style.transform="perspective(700px) rotateX(0) rotateY(0)";
 
-    observer.observe(el);
+});
+
+});
+
+/*==========================
+      افکت نور روی موس
+==========================*/
+
+const glass=document.querySelector(".glass");
+
+document.addEventListener("mousemove",(e)=>{
+
+const x=e.clientX/window.innerWidth*100;
+
+const y=e.clientY/window.innerHeight*100;
+
+glass.style.background=
+
+`radial-gradient(circle at ${x}% ${y}%,
+rgba(255,255,255,.10),
+rgba(255,255,255,.04) 45%,
+rgba(255,255,255,.03) 100%)`;
+
+});
+
+/*==========================
+      انیمیشن ورود
+==========================*/
+
+window.addEventListener("load",()=>{
+
+document.querySelectorAll(".left,.right,.card,.faq-item").forEach((el,i)=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(30px)";
+
+setTimeout(()=>{
+
+el.style.transition=".8s";
+
+el.style.opacity="1";
+
+el.style.transform="translateY(0)";
+
+},i*120);
+
+});
+
+});
+
+/*==========================
+      دکمه ها
+==========================*/
+
+document.querySelectorAll(".btn,.social").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-6px) scale(1.04)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0) scale(1)";
+
+});
 
 });
