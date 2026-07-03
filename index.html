@@ -1,359 +1,1055 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+/*======================================
+            FONT & RESET
+======================================*/
 
-<head>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
 
-<meta charset="UTF-8">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
+}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+html{
+scroll-behavior:smooth;
+}
 
-<title>ایلیا | ILIA FOREX</title>
+body{
 
-<meta name="theme-color" content="#050505">
+background:#050505;
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+color:#fff;
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+overflow-x:hidden;
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+line-height:1.8;
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+}
 
-<link rel="stylesheet" href="style.css">
+/*======================================
+          BACKGROUND
+======================================*/
 
-</head>
+.bg{
 
-<body>
+position:fixed;
 
-<div class="bg">
+inset:0;
 
-<div class="blur blur1"></div>
+overflow:hidden;
 
-<div class="blur blur2"></div>
+z-index:-5;
 
-<div class="grid"></div>
+background:
 
-</div>
+linear-gradient(180deg,#050505,#090909,#050505);
 
-<header>
+}
 
-<div class="logo">
+.blur{
 
-ایلیا
+position:absolute;
 
-<span>| ILIA FOREX</span>
+border-radius:50%;
 
-</div>
+filter:blur(120px);
 
-<a href="https://instagram.com/iliafx_vip" target="_blank" class="header-btn">
+animation:move 10s ease-in-out infinite;
 
-اینستاگرام
+}
 
-</a>
+.blur1{
 
-</header>
+width:420px;
 
-<section class="hero">
+height:420px;
 
-<div class="hero-left">
+background:#00ff99;
 
-<div class="profile">
+top:-180px;
 
-<img src="profile.jpg" alt="ایلیا">
+left:-120px;
 
-</div>
+opacity:.18;
 
-</div>
+}
 
-<div class="hero-right">
+.blur2{
 
-<span class="tag">
+width:350px;
 
-FOREX • TRADING • EDUCATION
+height:350px;
 
-</span>
+background:#ffd54a;
 
-<h1>
+right:-120px;
 
-ایلیا
+bottom:-100px;
 
-<span>ILIA FOREX</span>
+opacity:.12;
 
-</h1>
+animation-delay:4s;
 
-<p>
+}
 
-مسیر حرفه‌ای معامله‌گری از اینجا شروع می‌شود.
-آموزش تخصصی فارکس، تحلیل بازار و مدیریت سرمایه.
+.grid{
 
-</p>
+position:absolute;
 
-<div class="hero-buttons">
+inset:0;
 
-<a href="https://instagram.com/iliafx_vip"
+background-image:
 
-target="_blank"
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
 
-class="btn green">
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 
-<i class="fab fa-instagram"></i>
+background-size:60px 60px;
 
-ورود به اینستاگرام
+mask-image:radial-gradient(circle,#fff 20%,transparent 90%);
 
-</a>
+}
 
-<button class="btn dark"
+/*======================================
+            HEADER
+======================================*/
 
-onclick="copyInstagram()">
+header{
 
-<i class="fa-regular fa-copy"></i>
+width:100%;
 
-کپی آیدی
+max-width:1350px;
 
-</button>
+margin:auto;
 
-</div>
+padding:25px 35px;
 
-<div class="instagram-id">
+display:flex;
 
-@iliafx_vip
+justify-content:space-between;
 
-</div>
+align-items:center;
 
-</div>
+}
 
-</section>
-<section class="stats">
+.logo{
 
-<div class="stat-card">
+font-size:30px;
 
-<h2>+۵۰۰</h2>
+font-weight:900;
 
-<span>دانشجوی فعال</span>
+}
 
-</div>
+.logo span{
 
-<div class="stat-card">
+color:#00ff99;
 
-<h2>۹۸٪</h2>
+}
 
-<span>رضایت کاربران</span>
+.header-btn{
 
-</div>
+padding:14px 28px;
 
-<div class="stat-card">
+border-radius:15px;
 
-<h2>۵+</h2>
+background:#00ff99;
 
-<span>سال تجربه</span>
+color:#000;
 
-</div>
+text-decoration:none;
 
-</section>
+font-weight:700;
 
-<section class="services">
+transition:.35s;
 
-<div class="section-title">
+}
 
-<h2>خدمات</h2>
+.header-btn:hover{
 
-<p>تمام خدمات موردنیاز برای موفقیت در بازارهای مالی</p>
+transform:translateY(-5px);
 
-</div>
+box-shadow:0 0 30px rgba(0,255,153,.4);
 
-<div class="service-grid">
+}
+/*======================================
+            HERO
+======================================*/
 
-<div class="service-card">
+.hero{
 
-<i class="fa-solid fa-chart-line"></i>
+max-width:1350px;
 
-<h3>آموزش فارکس</h3>
+margin:30px auto;
 
-<p>آموزش از مبتدی تا پیشرفته همراه با مثال‌های واقعی بازار.</p>
+padding:0 35px;
 
-</div>
+display:grid;
 
-<div class="service-card">
+grid-template-columns:420px 1fr;
 
-<i class="fa-solid fa-chart-pie"></i>
+gap:50px;
 
-<h3>تحلیل بازار</h3>
+align-items:center;
 
-<p>تحلیل تکنیکال و فاندامنتال بازارهای مالی.</p>
+}
 
-</div>
+/*======================================
+          PROFILE
+======================================*/
 
-<div class="service-card">
+.hero-left{
 
-<i class="fa-solid fa-sack-dollar"></i>
+display:flex;
 
-<h3>مدیریت سرمایه</h3>
+justify-content:center;
 
-<p>آموزش مدیریت ریسک و افزایش بازده معاملات.</p>
+align-items:center;
 
-</div>
+}
 
-<div class="service-card">
+.profile{
 
-<i class="fa-solid fa-bolt"></i>
+width:320px;
 
-<h3>پلن معاملاتی</h3>
+height:320px;
 
-<p>ساخت استراتژی شخصی و برنامه معاملاتی حرفه‌ای.</p>
+padding:8px;
 
-</div>
+border-radius:50%;
 
-</div>
+background:linear-gradient(135deg,#00ff99,#ffd54a);
 
-</section>
+box-shadow:
 
-<section class="instagram">
+0 0 40px rgba(0,255,153,.35),
 
-<div class="instagram-card">
+0 0 80px rgba(255,213,74,.18);
 
-<i class="fab fa-instagram"></i>
+animation:float 4s ease-in-out infinite;
 
-<h2>اینستاگرام</h2>
+}
 
-<p>@iliafx_vip</p>
+.profile img{
 
-<div class="instagram-buttons">
+width:100%;
 
-<a href="https://instagram.com/iliafx_vip"
+height:100%;
 
-target="_blank"
+object-fit:cover;
 
-class="btn green">
+border-radius:50%;
 
-ورود به پیج
+border:6px solid #090909;
 
-</a>
+}
 
-<button
+/*======================================
+          HERO RIGHT
+======================================*/
 
-class="btn dark"
+.hero-right{
 
-onclick="copyInstagram()">
+background:rgba(255,255,255,.05);
 
-کپی آیدی
+border:1px solid rgba(255,255,255,.08);
 
-</button>
+backdrop-filter:blur(30px);
 
-</div>
+border-radius:30px;
 
-</div>
+padding:50px;
 
-</section>
-<section class="faq">
+box-shadow:
 
-<div class="section-title">
+0 0 60px rgba(0,255,153,.08);
 
-<h2>سوالات متداول</h2>
+}
 
-<p>پاسخ سوالات پرتکرار کاربران</p>
+.tag{
 
-</div>
+display:inline-block;
 
-<div class="faq-box">
+padding:10px 18px;
 
-<button class="question">
+border-radius:50px;
 
-آیا آموزش‌ها برای افراد مبتدی مناسب است؟
+background:rgba(0,255,153,.12);
 
-<i class="fa-solid fa-plus"></i>
+border:1px solid rgba(0,255,153,.25);
 
-</button>
+color:#00ff99;
 
-<div class="answer">
+font-size:14px;
 
-<p>
+font-weight:700;
 
-بله، آموزش‌ها از سطح مقدماتی تا پیشرفته طراحی شده‌اند و برای همه قابل استفاده هستند.
+margin-bottom:25px;
 
-</p>
+}
 
-</div>
+.hero-right h1{
 
-</div>
+font-size:62px;
 
-<div class="faq-box">
+font-weight:900;
 
-<button class="question">
+line-height:1.2;
 
-آیا بعد از خرید دوره پشتیبانی وجود دارد؟
+margin-bottom:18px;
 
-<i class="fa-solid fa-plus"></i>
+}
 
-</button>
+.hero-right h1 span{
 
-<div class="answer">
+display:block;
 
-<p>
+font-size:34px;
 
-بله، پس از تهیه دوره از پشتیبانی و راهنمایی کامل برخوردار خواهید شد.
+color:#ffd54a;
 
-</p>
+margin-top:10px;
 
-</div>
+}
 
-</div>
+.hero-right p{
 
-<div class="faq-box">
+font-size:19px;
 
-<button class="question">
+color:#cfcfcf;
 
-چطور با شما در ارتباط باشم؟
+max-width:700px;
 
-<i class="fa-solid fa-plus"></i>
+margin-bottom:35px;
 
-</button>
+line-height:2;
 
-<div class="answer">
+}
 
-<p>
+/*======================================
+          BUTTONS
+======================================*/
 
-از طریق صفحه اینستاگرام
-<strong>@iliafx_vip</strong>
-می‌توانید با من در ارتباط باشید.
+.hero-buttons{
 
-</p>
+display:flex;
 
-</div>
+gap:18px;
 
-</div>
+flex-wrap:wrap;
 
-</section>
+margin-bottom:25px;
 
-<footer>
+}
 
-<div class="footer-logo">
+.btn{
 
-ایلیا <span>| ILIA FOREX</span>
+height:58px;
 
-</div>
+padding:0 32px;
 
-<p>
+border:none;
 
-© تمامی حقوق این وب‌سایت محفوظ است.
+border-radius:16px;
 
-</p>
+display:flex;
 
-<a href="https://instagram.com/iliafx_vip"
+align-items:center;
 
-target="_blank"
+justify-content:center;
 
-class="footer-instagram">
+gap:10px;
 
-<i class="fab fa-instagram"></i>
+font-size:16px;
 
-@iliafx_vip
+font-weight:700;
 
-</a>
+text-decoration:none;
 
-</footer>
+cursor:pointer;
 
-<script src="script.js"></script>
+transition:.35s;
 
-</body>
+}
 
-</html>
+.green{
+
+background:#00ff99;
+
+color:#000;
+
+}
+
+.green:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 30px rgba(0,255,153,.35);
+
+}
+
+.dark{
+
+background:#111;
+
+color:#fff;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.dark:hover{
+
+background:#191919;
+
+transform:translateY(-5px);
+
+}
+
+.instagram-id{
+
+display:inline-flex;
+
+padding:12px 22px;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+font-weight:700;
+
+font-size:18px;
+
+letter-spacing:1px;
+
+color:#00ff99;
+
+}
+
+/*======================================
+          ANIMATION
+======================================*/
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+@keyframes move{
+
+0%,100%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(40px,-30px);
+
+}
+
+}
+/*======================================
+            آمار
+======================================*/
+
+.stats{
+
+max-width:1350px;
+
+margin:70px auto;
+
+padding:0 35px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+.stat-card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(25px);
+
+border-radius:25px;
+
+padding:35px;
+
+text-align:center;
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.stat-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-100%;
+
+left:-40%;
+
+width:180%;
+
+height:250%;
+
+background:linear-gradient(
+180deg,
+transparent,
+rgba(255,255,255,.12),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:.7s;
+
+}
+
+.stat-card:hover::before{
+
+top:120%;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#00ff99;
+
+box-shadow:0 0 35px rgba(0,255,153,.15);
+
+}
+
+.stat-card h2{
+
+font-size:42px;
+
+color:#00ff99;
+
+margin-bottom:8px;
+
+font-weight:900;
+
+}
+
+.stat-card span{
+
+color:#cfcfcf;
+
+font-size:17px;
+
+}
+
+/*======================================
+            خدمات
+======================================*/
+
+.services{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:50px;
+
+}
+
+.section-title h2{
+
+font-size:42px;
+
+font-weight:900;
+
+margin-bottom:10px;
+
+}
+
+.section-title p{
+
+color:#a9a9a9;
+
+font-size:18px;
+
+}
+
+.service-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:25px;
+
+}
+
+.service-card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:25px;
+
+padding:35px;
+
+transition:.35s;
+
+backdrop-filter:blur(25px);
+
+}
+
+.service-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#00ff99;
+
+box-shadow:0 0 35px rgba(0,255,153,.12);
+
+}
+
+.service-card i{
+
+font-size:42px;
+
+color:#00ff99;
+
+margin-bottom:25px;
+
+}
+
+.service-card h3{
+
+font-size:25px;
+
+margin-bottom:15px;
+
+font-weight:800;
+
+}
+
+.service-card p{
+
+color:#cfcfcf;
+
+line-height:2;
+
+font-size:16px;
+
+}
+/*======================================
+          INSTAGRAM
+======================================*/
+
+.instagram{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.instagram-card{
+
+background:linear-gradient(135deg,
+rgba(0,255,153,.08),
+rgba(255,213,74,.05));
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(30px);
+
+border-radius:30px;
+
+padding:60px;
+
+text-align:center;
+
+}
+
+.instagram-card i{
+
+font-size:70px;
+
+color:#00ff99;
+
+margin-bottom:25px;
+
+}
+
+.instagram-card h2{
+
+font-size:42px;
+
+margin-bottom:10px;
+
+}
+
+.instagram-card p{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#ffd54a;
+
+margin-bottom:30px;
+
+}
+
+.instagram-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+/*======================================
+              FAQ
+======================================*/
+
+.faq{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.faq-box{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+margin-bottom:18px;
+
+overflow:hidden;
+
+}
+
+.question{
+
+width:100%;
+
+background:none;
+
+border:none;
+
+padding:24px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+.question i{
+
+transition:.35s;
+
+}
+
+.answer{
+
+max-height:0;
+
+overflow:hidden;
+
+transition:max-height .4s ease;
+
+}
+
+.answer p{
+
+padding:0 24px 24px;
+
+color:#cfcfcf;
+
+line-height:2;
+
+}
+
+.faq-box.active .answer{
+
+max-height:220px;
+
+}
+
+.faq-box.active i{
+
+transform:rotate(45deg);
+
+}
+
+/*======================================
+             FOOTER
+======================================*/
+
+footer{
+
+max-width:1350px;
+
+margin:80px auto 40px;
+
+padding:40px 35px;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+.footer-logo{
+
+font-size:28px;
+
+font-weight:900;
+
+}
+
+.footer-logo span{
+
+color:#00ff99;
+
+}
+
+.footer-instagram{
+
+text-decoration:none;
+
+color:#00ff99;
+
+font-weight:700;
+
+font-size:18px;
+
+}
+
+/*======================================
+          RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-left{
+
+margin-bottom:30px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.service-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.instagram-buttons{
+
+flex-direction:column;
+
+}
+
+footer{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.profile{
+
+width:240px;
+
+height:240px;
+
+}
+
+.hero-right{
+
+padding:35px;
+
+}
+
+.hero-right h1{
+
+font-size:42px;
+
+}
+
+.hero-right h1 span{
+
+font-size:26px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+header{
+
+padding:20px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+.profile{
+
+width:190px;
+
+height:190px;
+
+}
+
+.hero{
+
+padding:0 20px;
+
+}
+
+.services,
+.stats,
+.instagram,
+.faq{
+
+padding:0 20px;
+
+}
+
+.hero-right{
+
+padding:25px;
+
+}
+
+.hero-right p{
+
+font-size:16px;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.stat-card{
+
+padding:25px;
+
+}
+
+.service-card{
+
+padding:25px;
+
+}
+
+.instagram-card{
+
+padding:35px 25px;
+
+}
+
+.question{
+
+font-size:16px;
+
+padding:18px;
+
+}
+
+}
