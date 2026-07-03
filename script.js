@@ -1,111 +1,84 @@
-/*==========================
-      سوالات متداول
-==========================*/
-
-document.querySelectorAll(".faq-item").forEach(item=>{
-
-const btn=item.querySelector(".question");
-
-btn.addEventListener("click",()=>{
-
-document.querySelectorAll(".faq-item").forEach(box=>{
-
-if(box!==item){
-
-box.classList.remove("active");
-
-}
-
-});
-
-item.classList.toggle("active");
-
-});
-
-});
-
-/*==========================
+/*=========================
       کپی اینستاگرام
-==========================*/
+=========================*/
 
 function copyInstagram(){
 
-const username="@ilia.forex";
+navigator.clipboard.writeText("@iliafx_vip");
 
-navigator.clipboard.writeText(username);
+const btn=document.querySelectorAll(".dark");
 
-const insta=document.querySelector(".instagram span");
+btn.forEach(item=>{
 
-const old=insta.innerHTML;
+const old=item.innerHTML;
 
-insta.innerHTML="کپی شد ✓";
+item.innerHTML="<i class='fa-solid fa-check'></i> کپی شد";
 
 setTimeout(()=>{
 
-insta.innerHTML=old;
+item.innerHTML=old;
 
 },2000);
 
-}
-
-/*==========================
-      دکمه اینستاگرام
-==========================*/
-
-const instaBtn=document.querySelector(".instagram");
-
-if(instaBtn){
-
-instaBtn.addEventListener("click",(e)=>{
-
-e.preventDefault();
-
-copyInstagram();
-
 });
 
 }
 
-/*==========================
-      افکت سه بعدی کارت ها
-==========================*/
+/*=========================
+      FAQ
+=========================*/
 
-document.querySelectorAll(".card").forEach(card=>{
+document.querySelectorAll(".faq-box").forEach(box=>{
 
-card.addEventListener("mousemove",(e)=>{
+const btn=box.querySelector(".question");
 
-const rect=card.getBoundingClientRect();
+btn.addEventListener("click",()=>{
 
-const x=e.clientX-rect.left;
+document.querySelectorAll(".faq-box").forEach(item=>{
 
-const y=e.clientY-rect.top;
+if(item!==box){
 
-const rotateY=((x/rect.width)-0.5)*16;
+item.classList.remove("active");
 
-const rotateX=((y/rect.height)-0.5)*-16;
-
-card.style.transform=
-
-`perspective(700px)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-translateY(-8px)`;
+}
 
 });
 
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform="perspective(700px) rotateX(0) rotateY(0)";
+box.classList.toggle("active");
 
 });
 
 });
 
-/*==========================
+/*=========================
+      افکت ورود
+=========================*/
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:.2});
+
+document.querySelectorAll(".stat-card,.service-card,.instagram-card,.faq-box").forEach(el=>{
+
+el.classList.add("hidden");
+
+observer.observe(el);
+
+});
+
+/*=========================
       افکت نور روی موس
-==========================*/
-
-const glass=document.querySelector(".glass");
+=========================*/
 
 document.addEventListener("mousemove",(e)=>{
 
@@ -113,57 +86,8 @@ const x=e.clientX/window.innerWidth*100;
 
 const y=e.clientY/window.innerHeight*100;
 
-glass.style.background=
+document.documentElement.style.setProperty("--x",x+"%");
 
-`radial-gradient(circle at ${x}% ${y}%,
-rgba(255,255,255,.10),
-rgba(255,255,255,.04) 45%,
-rgba(255,255,255,.03) 100%)`;
-
-});
-
-/*==========================
-      انیمیشن ورود
-==========================*/
-
-window.addEventListener("load",()=>{
-
-document.querySelectorAll(".left,.right,.card,.faq-item").forEach((el,i)=>{
-
-el.style.opacity="0";
-
-el.style.transform="translateY(30px)";
-
-setTimeout(()=>{
-
-el.style.transition=".8s";
-
-el.style.opacity="1";
-
-el.style.transform="translateY(0)";
-
-},i*120);
-
-});
-
-});
-
-/*==========================
-      دکمه ها
-==========================*/
-
-document.querySelectorAll(".btn,.social").forEach(btn=>{
-
-btn.addEventListener("mouseenter",()=>{
-
-btn.style.transform="translateY(-6px) scale(1.04)";
-
-});
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="translateY(0) scale(1)";
-
-});
+document.documentElement.style.setProperty("--y",y+"%");
 
 });
