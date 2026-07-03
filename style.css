@@ -1,8 +1,8 @@
-/*====================================
+/*======================================
+            FONT & RESET
+======================================*/
 
-          RESET
-
-====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
 
 *{
 margin:0;
@@ -18,215 +18,215 @@ scroll-behavior:smooth;
 body{
 
 background:#050505;
+
 color:#fff;
 
-width:100%;
-height:100vh;
+overflow-x:hidden;
 
-overflow:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-position:relative;
+line-height:1.8;
 
 }
 
-/*====================================
+/*======================================
+          BACKGROUND
+======================================*/
 
-        BACKGROUND
-
-====================================*/
-
-.background{
+.bg{
 
 position:fixed;
 
 inset:0;
 
-background:
-radial-gradient(circle at 15% 15%,rgba(0,255,170,.18),transparent 35%),
-radial-gradient(circle at 90% 5%,rgba(255,213,74,.12),transparent 30%),
-radial-gradient(circle at bottom,rgba(0,170,255,.10),transparent 40%),
-linear-gradient(160deg,#040404,#080808,#050505);
-
 overflow:hidden;
 
 z-index:-5;
 
+background:
+
+linear-gradient(180deg,#050505,#090909,#050505);
+
 }
 
-.light{
+.blur{
 
 position:absolute;
 
 border-radius:50%;
 
-filter:blur(110px);
+filter:blur(120px);
 
-animation:floatLight 12s ease-in-out infinite;
+animation:move 10s ease-in-out infinite;
 
 }
 
-.light.one{
+.blur1{
 
-width:320px;
-height:320px;
+width:420px;
+
+height:420px;
 
 background:#00ff99;
 
-top:-120px;
-left:-100px;
+top:-180px;
+
+left:-120px;
 
 opacity:.18;
 
 }
 
-.light.two{
+.blur2{
 
-width:260px;
-height:260px;
+width:350px;
+
+height:350px;
 
 background:#ffd54a;
 
-right:-90px;
-bottom:-80px;
+right:-120px;
 
-opacity:.15;
+bottom:-100px;
 
-animation-delay:3s;
+opacity:.12;
 
-}
-
-.light.three{
-
-width:230px;
-height:230px;
-
-background:#00bfff;
-
-left:45%;
-top:45%;
-
-opacity:.10;
-
-animation-delay:6s;
+animation-delay:4s;
 
 }
 
-/*====================================
+.grid{
 
-        CONTAINER
+position:absolute;
 
-====================================*/
+inset:0;
 
-.container{
+background-image:
+
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+background-size:60px 60px;
+
+mask-image:radial-gradient(circle,#fff 20%,transparent 90%);
+
+}
+
+/*======================================
+            HEADER
+======================================*/
+
+header{
 
 width:100%;
 
+max-width:1350px;
+
+margin:auto;
+
+padding:25px 35px;
+
 display:flex;
 
-justify-content:center;
+justify-content:space-between;
 
 align-items:center;
 
-padding:30px;
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:900;
 
 }
 
-.glass{
+.logo span{
 
-width:1250px;
-
-height:760px;
-
-display:flex;
-
-overflow:hidden;
-
-border-radius:35px;
-
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(35px);
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-
-0 0 60px rgba(0,255,170,.12),
-
-0 0 140px rgba(255,213,74,.05),
-
-inset 0 0 40px rgba(255,255,255,.03);
-
-transition:.4s;
+color:#00ff99;
 
 }
 
-.glass:hover{
+.header-btn{
+
+padding:14px 28px;
+
+border-radius:15px;
+
+background:#00ff99;
+
+color:#000;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.35s;
+
+}
+
+.header-btn:hover{
 
 transform:translateY(-5px);
 
-box-shadow:
+box-shadow:0 0 30px rgba(0,255,153,.4);
 
-0 0 80px rgba(0,255,170,.18),
+}
+/*======================================
+            HERO
+======================================*/
 
-0 0 180px rgba(255,213,74,.08);
+.hero{
 
-   }
-/*====================================
+max-width:1350px;
 
-            ستون چپ
+margin:30px auto;
 
-====================================*/
+padding:0 35px;
 
-.left{
+display:grid;
 
-width:42%;
+grid-template-columns:420px 1fr;
 
-padding:55px;
+gap:50px;
+
+align-items:center;
+
+}
+
+/*======================================
+          PROFILE
+======================================*/
+
+.hero-left{
 
 display:flex;
-
-flex-direction:column;
 
 justify-content:center;
 
 align-items:center;
 
-border-left:1px solid rgba(255,255,255,.08);
-
 }
-
-/*====================================
-
-          عکس پروفایل
-
-====================================*/
 
 .profile{
 
-width:220px;
+width:320px;
 
-height:220px;
+height:320px;
+
+padding:8px;
 
 border-radius:50%;
-
-padding:6px;
 
 background:linear-gradient(135deg,#00ff99,#ffd54a);
 
 box-shadow:
 
-0 0 35px rgba(0,255,153,.45),
+0 0 40px rgba(0,255,153,.35),
 
-0 0 80px rgba(255,213,74,.20);
+0 0 80px rgba(255,213,74,.18);
 
 animation:float 4s ease-in-out infinite;
-
-margin-bottom:35px;
 
 }
 
@@ -236,105 +236,143 @@ width:100%;
 
 height:100%;
 
-border-radius:50%;
-
 object-fit:cover;
 
-border:5px solid #0a0a0a;
+border-radius:50%;
+
+border:6px solid #090909;
 
 }
 
-/*====================================
+/*======================================
+          HERO RIGHT
+======================================*/
 
-              عنوان
+.hero-right{
 
-====================================*/
+background:rgba(255,255,255,.05);
 
-.left h1{
+border:1px solid rgba(255,255,255,.08);
 
-font-size:46px;
+backdrop-filter:blur(30px);
 
-font-weight:800;
+border-radius:30px;
 
-margin-bottom:12px;
+padding:50px;
 
-text-align:center;
+box-shadow:
 
-line-height:1.4;
+0 0 60px rgba(0,255,153,.08);
 
 }
 
-.left h1 span{
+.tag{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:rgba(0,255,153,.12);
+
+border:1px solid rgba(0,255,153,.25);
 
 color:#00ff99;
 
-font-size:32px;
+font-size:14px;
 
-display:block;
+font-weight:700;
 
-margin-top:8px;
+margin-bottom:25px;
 
 }
 
-.left p{
+.hero-right h1{
 
-font-size:18px;
+font-size:62px;
 
-color:#bdbdbd;
+font-weight:900;
+
+line-height:1.2;
+
+margin-bottom:18px;
+
+}
+
+.hero-right h1 span{
+
+display:block;
+
+font-size:34px;
+
+color:#ffd54a;
+
+margin-top:10px;
+
+}
+
+.hero-right p{
+
+font-size:19px;
+
+color:#cfcfcf;
+
+max-width:700px;
 
 margin-bottom:35px;
-
-text-align:center;
 
 line-height:2;
 
 }
 
-/*====================================
+/*======================================
+          BUTTONS
+======================================*/
 
-        شبکه های اجتماعی
-
-====================================*/
-
-.socials{
-
-width:100%;
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:14px;
-
-}
-
-.social{
-
-height:60px;
-
-border-radius:18px;
+.hero-buttons{
 
 display:flex;
 
-justify-content:center;
+gap:18px;
 
-align-items:center;
+flex-wrap:wrap;
 
-gap:10px;
-
-text-decoration:none;
-
-font-size:15px;
-
-font-weight:700;
-
-transition:.35s;
-
-border:1px solid rgba(255,255,255,.08);
+margin-bottom:25px;
 
 }
 
-.instagram{
+.btn{
+
+height:58px;
+
+padding:0 32px;
+
+border:none;
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+font-size:16px;
+
+font-weight:700;
+
+text-decoration:none;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.green{
 
 background:#00ff99;
 
@@ -342,47 +380,61 @@ color:#000;
 
 }
 
-.telegram{
+.green:hover{
 
-background:#1d9bf0;
+transform:translateY(-5px);
+
+box-shadow:0 0 30px rgba(0,255,153,.35);
+
+}
+
+.dark{
+
+background:#111;
 
 color:#fff;
 
-}
-
-.whatsapp{
-
-background:#25D366;
-
-color:#fff;
+border:1px solid rgba(255,255,255,.08);
 
 }
 
-.social:hover{
+.dark:hover{
 
-transform:translateY(-6px) scale(1.03);
+background:#191919;
 
-box-shadow:
-
-0 0 30px rgba(255,255,255,.18);
+transform:translateY(-5px);
 
 }
 
-.social i{
+.instagram-id{
 
-font-size:22px;
+display:inline-flex;
+
+padding:12px 22px;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+font-weight:700;
+
+font-size:18px;
+
+letter-spacing:1px;
+
+color:#00ff99;
 
 }
 
-/*====================================
-
-          انیمیشن عکس
-
-====================================*/
+/*======================================
+          ANIMATION
+======================================*/
 
 @keyframes float{
 
-0%{
+0%,100%{
 
 transform:translateY(0);
 
@@ -394,17 +446,11 @@ transform:translateY(-12px);
 
 }
 
-100%{
-
-transform:translateY(0);
-
 }
 
-}
+@keyframes move{
 
-@keyframes floatLight{
-
-0%{
+0%,100%{
 
 transform:translate(0,0);
 
@@ -412,72 +458,46 @@ transform:translate(0,0);
 
 50%{
 
-transform:translate(40px,-25px);
+transform:translate(40px,-30px);
 
 }
 
-100%{
-
-transform:translate(0,0);
-
 }
+/*======================================
+            آمار
+======================================*/
 
-                           }
-/*====================================
+.stats{
 
-            ستون راست
+max-width:1350px;
 
-====================================*/
+margin:70px auto;
 
-.right{
-
-flex:1;
-
-padding:50px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-}
-
-/*====================================
-
-          کارت های آمار
-
-====================================*/
-
-.cards{
+padding:0 35px;
 
 display:grid;
 
 grid-template-columns:repeat(3,1fr);
 
-gap:18px;
-
-margin-bottom:35px;
+gap:25px;
 
 }
 
-.card{
+.stat-card{
 
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(25px);
 
-border-radius:22px;
+border-radius:25px;
 
-padding:28px;
+padding:35px;
 
 text-align:center;
 
 transition:.35s;
-
-cursor:pointer;
 
 position:relative;
 
@@ -485,19 +505,19 @@ overflow:hidden;
 
 }
 
-.card::before{
+.stat-card::before{
 
 content:"";
 
 position:absolute;
 
-top:-120%;
+top:-100%;
 
 left:-40%;
 
 width:180%;
 
-height:300%;
+height:250%;
 
 background:linear-gradient(
 180deg,
@@ -512,152 +532,246 @@ transition:.7s;
 
 }
 
-.card:hover::before{
+.stat-card:hover::before{
 
-top:100%;
+top:120%;
 
 }
 
-.card:hover{
+.stat-card:hover{
 
 transform:translateY(-8px);
 
 border-color:#00ff99;
 
-box-shadow:
-
-0 0 35px rgba(0,255,153,.18);
+box-shadow:0 0 35px rgba(0,255,153,.15);
 
 }
 
-.card h2{
+.stat-card h2{
 
-font-size:38px;
+font-size:42px;
 
 color:#00ff99;
+
+margin-bottom:8px;
+
+font-weight:900;
+
+}
+
+.stat-card span{
+
+color:#cfcfcf;
+
+font-size:17px;
+
+}
+
+/*======================================
+            خدمات
+======================================*/
+
+.services{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:50px;
+
+}
+
+.section-title h2{
+
+font-size:42px;
+
+font-weight:900;
 
 margin-bottom:10px;
 
 }
 
-.card p{
+.section-title p{
 
-color:#cfcfcf;
+color:#a9a9a9;
 
-font-size:16px;
+font-size:18px;
 
 }
 
-/*====================================
-
-           دکمه ها
-
-====================================*/
-
-.actions{
+.service-grid{
 
 display:grid;
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(2,1fr);
 
-gap:15px;
-
-margin-bottom:35px;
+gap:25px;
 
 }
 
-.btn{
-
-height:58px;
-
-border-radius:18px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-decoration:none;
-
-font-weight:700;
-
-font-size:16px;
-
-transition:.35s;
-
-}
-
-.primary{
-
-background:linear-gradient(135deg,#00ff99,#00d97d);
-
-color:#000;
-
-}
-
-.secondary{
-
-background:linear-gradient(135deg,#ffd54a,#ffb300);
-
-color:#000;
-
-}
-
-.outline{
+.service-card{
 
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-color:#fff;
+border-radius:25px;
 
-}
-
-.btn:hover{
-
-transform:translateY(-6px);
-
-box-shadow:
-
-0 0 35px rgba(0,255,153,.20);
-
-   }
-/*====================================
-
-              FAQ
-
-====================================*/
-
-.faq{
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.faq-item{
-
-background:rgba(255,255,255,.04);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:18px;
-
-overflow:hidden;
+padding:35px;
 
 transition:.35s;
 
+backdrop-filter:blur(25px);
+
 }
 
-.faq-item:hover{
+.service-card:hover{
+
+transform:translateY(-8px);
 
 border-color:#00ff99;
 
-box-shadow:0 0 25px rgba(0,255,153,.12);
+box-shadow:0 0 35px rgba(0,255,153,.12);
+
+}
+
+.service-card i{
+
+font-size:42px;
+
+color:#00ff99;
+
+margin-bottom:25px;
+
+}
+
+.service-card h3{
+
+font-size:25px;
+
+margin-bottom:15px;
+
+font-weight:800;
+
+}
+
+.service-card p{
+
+color:#cfcfcf;
+
+line-height:2;
+
+font-size:16px;
+
+}
+/*======================================
+          INSTAGRAM
+======================================*/
+
+.instagram{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.instagram-card{
+
+background:linear-gradient(135deg,
+rgba(0,255,153,.08),
+rgba(255,213,74,.05));
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(30px);
+
+border-radius:30px;
+
+padding:60px;
+
+text-align:center;
+
+}
+
+.instagram-card i{
+
+font-size:70px;
+
+color:#00ff99;
+
+margin-bottom:25px;
+
+}
+
+.instagram-card h2{
+
+font-size:42px;
+
+margin-bottom:10px;
+
+}
+
+.instagram-card p{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#ffd54a;
+
+margin-bottom:30px;
+
+}
+
+.instagram-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+/*======================================
+              FAQ
+======================================*/
+
+.faq{
+
+max-width:1350px;
+
+margin:80px auto;
+
+padding:0 35px;
+
+}
+
+.faq-box{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+margin-bottom:18px;
+
+overflow:hidden;
 
 }
 
@@ -669,7 +783,7 @@ background:none;
 
 border:none;
 
-padding:22px;
+padding:24px;
 
 display:flex;
 
@@ -679,7 +793,7 @@ align-items:center;
 
 color:#fff;
 
-font-size:17px;
+font-size:18px;
 
 font-weight:700;
 
@@ -693,182 +807,249 @@ transition:.35s;
 
 }
 
-.faq-item.active i{
-
-transform:rotate(45deg);
-
-}
-
 .answer{
 
 max-height:0;
 
 overflow:hidden;
 
-transition:max-height .45s ease;
+transition:max-height .4s ease;
 
 }
 
 .answer p{
 
-padding:0 22px 22px;
-
-line-height:2;
+padding:0 24px 24px;
 
 color:#cfcfcf;
 
-}
-
-.faq-item.active .answer{
-
-max-height:180px;
+line-height:2;
 
 }
 
-/*====================================
+.faq-box.active .answer{
 
-            FOOTER
+max-height:220px;
 
-====================================*/
+}
+
+.faq-box.active i{
+
+transform:rotate(45deg);
+
+}
+
+/*======================================
+             FOOTER
+======================================*/
 
 footer{
 
-position:absolute;
+max-width:1350px;
 
-bottom:18px;
+margin:80px auto 40px;
 
-left:50%;
+padding:40px 35px;
 
-transform:translateX(-50%);
+border-top:1px solid rgba(255,255,255,.08);
 
-color:#777;
+display:flex;
 
-font-size:14px;
+justify-content:space-between;
 
-letter-spacing:.5px;
+align-items:center;
 
-}
+flex-wrap:wrap;
 
-/*====================================
-
-          SCROLL BAR
-
-====================================*/
-
-::-webkit-scrollbar{
-
-width:8px;
+gap:20px;
 
 }
 
-::-webkit-scrollbar-thumb{
+.footer-logo{
 
-background:#00ff99;
+font-size:28px;
 
-border-radius:20px;
-
-}
-
-::selection{
-
-background:#00ff99;
-
-color:#000;
+font-weight:900;
 
 }
 
-/*====================================
+.footer-logo span{
 
-          MOBILE
-
-====================================*/
-
-@media(max-width:950px){
-
-body{
-
-height:auto;
-
-overflow:auto;
-
-padding:20px;
+color:#00ff99;
 
 }
 
-.glass{
+.footer-instagram{
 
-width:100%;
+text-decoration:none;
 
-height:auto;
+color:#00ff99;
 
-flex-direction:column;
+font-weight:700;
 
-}
-
-.left{
-
-width:100%;
-
-border:none;
-
-padding:35px;
+font-size:18px;
 
 }
 
-.right{
+/*======================================
+          RESPONSIVE
+======================================*/
 
-padding:25px;
+@media(max-width:992px){
 
-}
-
-.cards{
+.hero{
 
 grid-template-columns:1fr;
-
-}
-
-.actions{
-
-grid-template-columns:1fr;
-
-}
-
-.socials{
-
-grid-template-columns:1fr;
-
-}
-
-.profile{
-
-width:170px;
-
-height:170px;
-
-}
-
-.left h1{
-
-font-size:34px;
-
-}
-
-.left h1 span{
-
-font-size:24px;
-
-}
-
-footer{
-
-position:static;
-
-transform:none;
-
-margin-top:30px;
 
 text-align:center;
 
 }
 
-   }
+.hero-left{
+
+margin-bottom:30px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.service-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.instagram-buttons{
+
+flex-direction:column;
+
+}
+
+footer{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.profile{
+
+width:240px;
+
+height:240px;
+
+}
+
+.hero-right{
+
+padding:35px;
+
+}
+
+.hero-right h1{
+
+font-size:42px;
+
+}
+
+.hero-right h1 span{
+
+font-size:26px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+header{
+
+padding:20px;
+
+}
+
+.logo{
+
+font-size:24px;
+
+}
+
+.profile{
+
+width:190px;
+
+height:190px;
+
+}
+
+.hero{
+
+padding:0 20px;
+
+}
+
+.services,
+.stats,
+.instagram,
+.faq{
+
+padding:0 20px;
+
+}
+
+.hero-right{
+
+padding:25px;
+
+}
+
+.hero-right p{
+
+font-size:16px;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.stat-card{
+
+padding:25px;
+
+}
+
+.service-card{
+
+padding:25px;
+
+}
+
+.instagram-card{
+
+padding:35px 25px;
+
+}
+
+.question{
+
+font-size:16px;
+
+padding:18px;
+
+}
+
+          }
