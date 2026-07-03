@@ -1,35 +1,47 @@
-/*======================================
-            FONT & RESET
-======================================*/
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+/* ==========================================
+            RESET
+========================================== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Vazirmatn',sans-serif;
+font-family:"Vazirmatn",sans-serif;
+}
+
+:root{
+
+--bg:#060606;
+--card:rgba(255,255,255,.05);
+--border:rgba(255,255,255,.08);
+
+--green:#00ff88;
+--gold:#ffd84d;
+
+--white:#ffffff;
+--text:#bdbdbd;
+
 }
 
 html{
+
 scroll-behavior:smooth;
+
 }
 
 body{
 
-background:#050505;
+background:var(--bg);
 
-color:#fff;
+color:var(--white);
 
 overflow-x:hidden;
 
-line-height:1.8;
-
 }
 
-/*======================================
-          BACKGROUND
-======================================*/
+/* ==========================================
+            BACKGROUND
+========================================== */
 
 .bg{
 
@@ -39,57 +51,11 @@ inset:0;
 
 overflow:hidden;
 
-z-index:-5;
+z-index:-10;
 
 background:
 
 linear-gradient(180deg,#050505,#090909,#050505);
-
-}
-
-.blur{
-
-position:absolute;
-
-border-radius:50%;
-
-filter:blur(120px);
-
-animation:move 10s ease-in-out infinite;
-
-}
-
-.blur1{
-
-width:420px;
-
-height:420px;
-
-background:#00ff99;
-
-top:-180px;
-
-left:-120px;
-
-opacity:.18;
-
-}
-
-.blur2{
-
-width:350px;
-
-height:350px;
-
-background:#ffd54a;
-
-right:-120px;
-
-bottom:-100px;
-
-opacity:.12;
-
-animation-delay:4s;
 
 }
 
@@ -105,31 +71,91 @@ linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
 
 linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 
-background-size:60px 60px;
+background-size:55px 55px;
 
 mask-image:radial-gradient(circle,#fff 20%,transparent 90%);
 
 }
 
-/*======================================
-            HEADER
-======================================*/
+.glow{
 
-header{
+position:absolute;
 
-width:100%;
+border-radius:50%;
 
-max-width:1350px;
+filter:blur(120px);
+
+animation:float 9s infinite ease-in-out;
+
+}
+
+.glow-1{
+
+width:420px;
+
+height:420px;
+
+background:#00ff88;
+
+top:-180px;
+
+left:-150px;
+
+opacity:.18;
+
+}
+
+.glow-2{
+
+width:350px;
+
+height:350px;
+
+background:#ffd84d;
+
+right:-100px;
+
+bottom:-120px;
+
+opacity:.12;
+
+animation-delay:4s;
+
+}
+
+/* ==========================================
+              HEADER
+========================================== */
+
+.header{
+
+position:sticky;
+
+top:20px;
+
+width:min(1300px,92%);
 
 margin:auto;
 
-padding:25px 35px;
+padding:18px 30px;
 
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
+
+background:rgba(255,255,255,.04);
+
+backdrop-filter:blur(20px);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+z-index:999;
+
+margin-top:20px;
 
 }
 
@@ -143,21 +169,27 @@ font-weight:900;
 
 .logo span{
 
-color:#00ff99;
+color:var(--green);
 
 }
 
-.header-btn{
+.instagram-btn{
 
-padding:14px 28px;
+display:flex;
 
-border-radius:15px;
+align-items:center;
 
-background:#00ff99;
+gap:10px;
 
-color:#000;
+padding:14px 22px;
+
+border-radius:14px;
 
 text-decoration:none;
+
+background:linear-gradient(135deg,#00ff88,#00d070);
+
+color:#000;
 
 font-weight:700;
 
@@ -165,40 +197,38 @@ transition:.35s;
 
 }
 
-.header-btn:hover{
+.instagram-btn:hover{
 
-transform:translateY(-5px);
+transform:translateY(-4px);
 
-box-shadow:0 0 30px rgba(0,255,153,.4);
+box-shadow:0 0 35px rgba(0,255,136,.35);
 
 }
-/*======================================
-            HERO
-======================================*/
+/* ==========================================
+                HERO
+========================================== */
 
 .hero{
 
-max-width:1350px;
+width:min(1300px,92%);
 
-margin:30px auto;
-
-padding:0 35px;
+margin:70px auto;
 
 display:grid;
 
-grid-template-columns:420px 1fr;
+grid-template-columns:380px 1fr;
 
-gap:50px;
+gap:60px;
 
 align-items:center;
 
 }
 
-/*======================================
-          PROFILE
-======================================*/
+/* ==========================================
+              PROFILE
+========================================== */
 
-.hero-left{
+.profile-box{
 
 display:flex;
 
@@ -208,7 +238,7 @@ align-items:center;
 
 }
 
-.profile{
+.profile-ring{
 
 width:320px;
 
@@ -218,19 +248,19 @@ padding:8px;
 
 border-radius:50%;
 
-background:linear-gradient(135deg,#00ff99,#ffd54a);
+background:linear-gradient(135deg,var(--green),var(--gold));
+
+animation:ring 5s linear infinite;
 
 box-shadow:
 
-0 0 40px rgba(0,255,153,.35),
+0 0 40px rgba(0,255,136,.30),
 
-0 0 80px rgba(255,213,74,.18);
-
-animation:float 4s ease-in-out infinite;
+0 0 90px rgba(255,216,77,.15);
 
 }
 
-.profile img{
+.profile-ring img{
 
 width:100%;
 
@@ -244,43 +274,39 @@ border:6px solid #090909;
 
 }
 
-/*======================================
-          HERO RIGHT
-======================================*/
+/* ==========================================
+            HERO CONTENT
+========================================== */
 
-.hero-right{
+.hero-content{
 
-background:rgba(255,255,255,.05);
+background:var(--card);
 
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(30px);
+border:1px solid var(--border);
 
 border-radius:30px;
 
 padding:50px;
 
-box-shadow:
-
-0 0 60px rgba(0,255,153,.08);
+backdrop-filter:blur(25px);
 
 }
 
-.tag{
+.badge{
 
-display:inline-block;
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
 
 padding:10px 18px;
 
-border-radius:50px;
+border-radius:30px;
 
-background:rgba(0,255,153,.12);
+background:rgba(0,255,136,.10);
 
-border:1px solid rgba(0,255,153,.25);
-
-color:#00ff99;
-
-font-size:14px;
+color:var(--green);
 
 font-weight:700;
 
@@ -288,131 +314,73 @@ margin-bottom:25px;
 
 }
 
-.hero-right h1{
+.hero-content h1{
 
-font-size:62px;
+font-size:68px;
 
 font-weight:900;
 
-line-height:1.2;
+line-height:1.15;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
-.hero-right h1 span{
+.hero-content h1 span{
 
 display:block;
 
-font-size:34px;
-
-color:#ffd54a;
+font-size:32px;
 
 margin-top:10px;
 
+color:var(--gold);
+
+letter-spacing:2px;
+
 }
 
-.hero-right p{
+.hero-content p{
 
-font-size:19px;
+font-size:18px;
 
-color:#cfcfcf;
-
-max-width:700px;
-
-margin-bottom:35px;
+color:var(--text);
 
 line-height:2;
 
+margin-bottom:35px;
+
+max-width:700px;
+
 }
 
-/*======================================
-          BUTTONS
-======================================*/
+/* ==========================================
+            SERVICES CHIP
+========================================== */
 
 .hero-buttons{
 
 display:flex;
 
-gap:18px;
-
 flex-wrap:wrap;
 
-margin-bottom:25px;
+gap:14px;
+
+margin-bottom:40px;
 
 }
 
-.btn{
-
-height:58px;
-
-padding:0 32px;
-
-border:none;
-
-border-radius:16px;
+.chip{
 
 display:flex;
 
 align-items:center;
 
-justify-content:center;
-
 gap:10px;
 
-font-size:16px;
+padding:14px 22px;
 
-font-weight:700;
-
-text-decoration:none;
-
-cursor:pointer;
-
-transition:.35s;
-
-}
-
-.green{
-
-background:#00ff99;
-
-color:#000;
-
-}
-
-.green:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 30px rgba(0,255,153,.35);
-
-}
-
-.dark{
-
-background:#111;
-
-color:#fff;
-
-border:1px solid rgba(255,255,255,.08);
-
-}
-
-.dark:hover{
-
-background:#191919;
-
-transform:translateY(-5px);
-
-}
-
-.instagram-id{
-
-display:inline-flex;
-
-padding:12px 22px;
-
-border-radius:14px;
+border-radius:50px;
 
 background:rgba(255,255,255,.05);
 
@@ -420,35 +388,115 @@ border:1px solid rgba(255,255,255,.08);
 
 font-weight:700;
 
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.chip i{
+
+color:var(--green);
+
 font-size:18px;
 
-letter-spacing:1px;
+}
 
-color:#00ff99;
+.chip:hover{
+
+transform:translateY(-5px);
+
+background:rgba(0,255,136,.10);
+
+border-color:var(--green);
+
+box-shadow:
+
+0 0 25px rgba(0,255,136,.20);
 
 }
 
-/*======================================
-          ANIMATION
-======================================*/
+/* ==========================================
+              STATS
+========================================== */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:16px;
+
+}
+
+.stat{
+
+padding:22px;
+
+text-align:center;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+}
+
+.stat:hover{
+
+transform:translateY(-6px);
+
+border-color:var(--green);
+
+box-shadow:
+
+0 0 25px rgba(0,255,136,.15);
+
+}
+
+.stat h2{
+
+font-size:34px;
+
+color:var(--green);
+
+margin-bottom:8px;
+
+}
+
+.stat span{
+
+font-size:15px;
+
+color:var(--text);
+
+}
+
+/* ==========================================
+            ANIMATION
+========================================== */
+
+@keyframes ring{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
 
 @keyframes float{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-}
-
-@keyframes move{
 
 0%,100%{
 
@@ -458,127 +506,20 @@ transform:translate(0,0);
 
 50%{
 
-transform:translate(40px,-30px);
+transform:translate(40px,-25px);
 
 }
 
-}
-/*======================================
-            آمار
-======================================*/
+                      }
+/* ==========================================
+                ABOUT
+========================================== */
 
-.stats{
+.about{
 
-max-width:1350px;
-
-margin:70px auto;
-
-padding:0 35px;
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:25px;
-
-}
-
-.stat-card{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(25px);
-
-border-radius:25px;
-
-padding:35px;
-
-text-align:center;
-
-transition:.35s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.stat-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-100%;
-
-left:-40%;
-
-width:180%;
-
-height:250%;
-
-background:linear-gradient(
-180deg,
-transparent,
-rgba(255,255,255,.12),
-transparent
-);
-
-transform:rotate(25deg);
-
-transition:.7s;
-
-}
-
-.stat-card:hover::before{
-
-top:120%;
-
-}
-
-.stat-card:hover{
-
-transform:translateY(-8px);
-
-border-color:#00ff99;
-
-box-shadow:0 0 35px rgba(0,255,153,.15);
-
-}
-
-.stat-card h2{
-
-font-size:42px;
-
-color:#00ff99;
-
-margin-bottom:8px;
-
-font-weight:900;
-
-}
-
-.stat-card span{
-
-color:#cfcfcf;
-
-font-size:17px;
-
-}
-
-/*======================================
-            خدمات
-======================================*/
-
-.services{
-
-max-width:1350px;
+width:min(1300px,92%);
 
 margin:80px auto;
-
-padding:0 35px;
 
 }
 
@@ -586,7 +527,7 @@ padding:0 35px;
 
 text-align:center;
 
-margin-bottom:50px;
+margin-bottom:40px;
 
 }
 
@@ -596,306 +537,197 @@ font-size:42px;
 
 font-weight:900;
 
-margin-bottom:10px;
+position:relative;
+
+display:inline-block;
 
 }
 
-.section-title p{
+.section-title h2::after{
 
-color:#a9a9a9;
+content:"";
 
-font-size:18px;
+position:absolute;
+
+bottom:-12px;
+
+right:50%;
+
+transform:translateX(50%);
+
+width:70px;
+
+height:4px;
+
+border-radius:20px;
+
+background:linear-gradient(90deg,var(--green),var(--gold));
 
 }
 
-.service-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:25px;
-
-}
-
-.service-card{
+.about-card{
 
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
-
-border-radius:25px;
-
-padding:35px;
-
-transition:.35s;
 
 backdrop-filter:blur(25px);
 
-}
-
-.service-card:hover{
-
-transform:translateY(-8px);
-
-border-color:#00ff99;
-
-box-shadow:0 0 35px rgba(0,255,153,.12);
-
-}
-
-.service-card i{
-
-font-size:42px;
-
-color:#00ff99;
-
-margin-bottom:25px;
-
-}
-
-.service-card h3{
-
-font-size:25px;
-
-margin-bottom:15px;
-
-font-weight:800;
-
-}
-
-.service-card p{
-
-color:#cfcfcf;
-
-line-height:2;
-
-font-size:16px;
-
-}
-/*======================================
-          INSTAGRAM
-======================================*/
-
-.instagram{
-
-max-width:1350px;
-
-margin:80px auto;
-
-padding:0 35px;
-
-}
-
-.instagram-card{
-
-background:linear-gradient(135deg,
-rgba(0,255,153,.08),
-rgba(255,213,74,.05));
-
-border:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(30px);
+padding:45px;
 
 border-radius:30px;
 
-padding:60px;
-
 text-align:center;
 
-}
+line-height:2.2;
 
-.instagram-card i{
+font-size:18px;
 
-font-size:70px;
+color:var(--text);
 
-color:#00ff99;
-
-margin-bottom:25px;
+transition:.4s;
 
 }
 
-.instagram-card h2{
+.about-card:hover{
 
-font-size:42px;
+transform:translateY(-8px);
 
-margin-bottom:10px;
+border-color:var(--green);
 
-}
+box-shadow:
 
-.instagram-card p{
-
-font-size:24px;
-
-font-weight:700;
-
-color:#ffd54a;
-
-margin-bottom:30px;
+0 0 35px rgba(0,255,136,.15);
 
 }
 
-.instagram-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-/*======================================
-              FAQ
-======================================*/
+/* ==========================================
+                 FAQ
+========================================== */
 
 .faq{
 
-max-width:1350px;
+width:min(1300px,92%);
 
-margin:80px auto;
-
-padding:0 35px;
+margin:90px auto;
 
 }
 
-.faq-box{
+.faq-item{
 
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-border-radius:22px;
-
-margin-bottom:18px;
+border-radius:20px;
 
 overflow:hidden;
 
+margin-bottom:18px;
+
+transition:.35s;
+
 }
 
-.question{
+.faq-item:hover{
+
+border-color:var(--green);
+
+}
+
+.faq-question{
 
 width:100%;
+
+padding:24px 28px;
 
 background:none;
 
 border:none;
 
-padding:24px;
-
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
 
-color:#fff;
-
 font-size:18px;
 
 font-weight:700;
+
+color:#fff;
 
 cursor:pointer;
 
 }
 
-.question i{
+.faq-question i{
 
 transition:.35s;
 
+color:var(--green);
+
 }
 
-.answer{
+.faq-answer{
 
 max-height:0;
 
 overflow:hidden;
 
-transition:max-height .4s ease;
+transition:max-height .45s ease;
 
 }
 
-.answer p{
+.faq-answer p{
 
-padding:0 24px 24px;
-
-color:#cfcfcf;
+padding:0 28px 24px;
 
 line-height:2;
 
+color:var(--text);
+
 }
 
-.faq-box.active .answer{
+.faq-item.active .faq-answer{
 
 max-height:220px;
 
 }
 
-.faq-box.active i{
+.faq-item.active i{
 
 transform:rotate(45deg);
 
 }
 
-/*======================================
-             FOOTER
-======================================*/
+/* ==========================================
+                FOOTER
+========================================== */
 
 footer{
 
-max-width:1350px;
+width:min(1300px,92%);
 
-margin:80px auto 40px;
+margin:80px auto 30px;
 
-padding:40px 35px;
+padding:25px;
 
 border-top:1px solid rgba(255,255,255,.08);
 
-display:flex;
+text-align:center;
 
-justify-content:space-between;
+color:#888;
 
-align-items:center;
-
-flex-wrap:wrap;
-
-gap:20px;
+font-size:15px;
 
 }
 
-.footer-logo{
+/* ==========================================
+              RESPONSIVE
+========================================== */
 
-font-size:28px;
-
-font-weight:900;
-
-}
-
-.footer-logo span{
-
-color:#00ff99;
-
-}
-
-.footer-instagram{
-
-text-decoration:none;
-
-color:#00ff99;
-
-font-weight:700;
-
-font-size:18px;
-
-}
-
-/*======================================
-          RESPONSIVE
-======================================*/
-
-@media(max-width:992px){
+@media(max-width:980px){
 
 .hero{
 
@@ -905,9 +737,13 @@ text-align:center;
 
 }
 
-.hero-left{
+.profile-ring{
 
-margin-bottom:30px;
+width:240px;
+
+height:240px;
+
+margin:auto;
 
 }
 
@@ -919,51 +755,17 @@ justify-content:center;
 
 .stats{
 
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr);
 
 }
 
-.service-grid{
+.hero-content h1{
 
-grid-template-columns:1fr;
-
-}
-
-.instagram-buttons{
-
-flex-direction:column;
+font-size:48px;
 
 }
 
-footer{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.profile{
-
-width:240px;
-
-height:240px;
-
-}
-
-.hero-right{
-
-padding:35px;
-
-}
-
-.hero-right h1{
-
-font-size:42px;
-
-}
-
-.hero-right h1 span{
+.hero-content h1 span{
 
 font-size:26px;
 
@@ -971,129 +773,84 @@ font-size:26px;
 
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-header{
+.header{
 
-padding:20px;
+padding:15px 20px;
 
 }
 
 .logo{
 
-font-size:24px;
+font-size:22px;
 
 }
 
-.profile{
+.instagram-btn span{
 
-width:190px;
-
-height:190px;
+display:none;
 
 }
 
 .hero{
 
-padding:0 20px;
+margin:40px auto;
 
 }
 
-.services,
-.stats,
-.instagram,
-.faq{
+.hero-content{
 
-padding:0 20px;
+padding:30px;
 
 }
 
-.hero-right{
+.hero-content h1{
 
-padding:25px;
+font-size:36px;
 
 }
 
-.hero-right p{
+.hero-content p{
 
 font-size:16px;
 
 }
 
-.btn{
+.stats{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.chip{
 
 width:100%;
 
-}
-
-.stat-card{
-
-padding:25px;
+justify-content:center;
 
 }
 
-.service-card{
+.about-card{
 
-padding:25px;
-
-}
-
-.instagram-card{
-
-padding:35px 25px;
-
-}
-
-.question{
+padding:30px;
 
 font-size:16px;
 
-padding:18px;
+}
+
+.section-title h2{
+
+font-size:30px;
 
 }
 
-          }
+.faq-question{
 
+font-size:16px;
 
-:root{
-
---x:50%;
---y:50%;
+padding:20px;
 
 }
 
-.hidden{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:.8s;
-
-}
-
-.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-.bg::after{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-background:radial-gradient(circle at var(--x) var(--y),
-rgba(0,255,153,.08),
-transparent 280px);
-
-transition:.15s;
-
-} 
+            }
