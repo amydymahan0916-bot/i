@@ -1053,3 +1053,47 @@ padding:18px;
 }
 
           }
+
+
+:root{
+
+--x:50%;
+--y:50%;
+
+}
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.8s;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.bg::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:radial-gradient(circle at var(--x) var(--y),
+rgba(0,255,153,.08),
+transparent 280px);
+
+transition:.15s;
+
+} 
