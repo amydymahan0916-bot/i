@@ -1,137 +1,178 @@
-/* ==========================================
-            ILIA FOREX | V8
-========================================== */
+/*==================================
+        ILIA FOREX V9
+==================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    /* ==========================
-            FAQ
-    ========================== */
+/*=========================
+        FAQ
+=========================*/
 
-    const faqItems = document.querySelectorAll(".faq-item");
+const faqItems=document.querySelectorAll(".faq-item");
 
-    faqItems.forEach(item => {
+faqItems.forEach(item=>{
 
-        const button = item.querySelector(".faq-question");
+const question=item.querySelector(".faq-question");
 
-        button.addEventListener("click", () => {
+question.addEventListener("click",()=>{
 
-            faqItems.forEach(other => {
+faqItems.forEach(other=>{
 
-                if (other !== item) {
+if(other!==item){
 
-                    other.classList.remove("active");
+other.classList.remove("active");
 
-                }
+}
 
-            });
+});
 
-            item.classList.toggle("active");
+item.classList.toggle("active");
 
-        });
+});
 
-    });
+});
 
-    /* ==========================
-        انیمیشن ورود
-    ========================== */
+/*=========================
+    Scroll Animation
+=========================*/
 
-    const observer = new IntersectionObserver((entries) => {
+const observer=new IntersectionObserver((entries)=>{
 
-        entries.forEach(entry => {
+entries.forEach(entry=>{
 
-            if (entry.isIntersecting) {
+if(entry.isIntersecting){
 
-                entry.target.classList.add("show");
+entry.target.classList.add("show");
 
-            }
+}
 
-        });
+});
 
-    }, {
-        threshold:0.15
-    });
+},{
+threshold:.15
+});
 
-    document.querySelectorAll(
+document.querySelectorAll(
 
-        ".hero,.about,.faq,.chip,.stat,.about-card,.faq-item"
+".hero,.about,.faq,.chip,.stat,.about-card,.faq-item"
 
-    ).forEach(el=>{
+).forEach(el=>{
 
-        el.classList.add("hidden");
+el.classList.add("hidden");
 
-        observer.observe(el);
+observer.observe(el);
 
-    });
+});
 
-    /* ==========================
-        افکت سه بعدی عکس
-    ========================== */
+/*=========================
+    3D Profile Effect
+=========================*/
 
-    const profile=document.querySelector(".profile-ring");
+const profile=document.querySelector(".profile-ring");
 
-    if(profile){
+if(profile){
 
-        document.addEventListener("mousemove",(e)=>{
+document.addEventListener("mousemove",(e)=>{
 
-            const x=(window.innerWidth/2-e.clientX)/45;
+const x=(window.innerWidth/2-e.clientX)/45;
 
-            const y=(window.innerHeight/2-e.clientY)/45;
+const y=(window.innerHeight/2-e.clientY)/45;
 
-            profile.style.transform=
+profile.style.transform=
 
-            `rotateY(${x}deg) rotateX(${-y}deg)`;
+`rotateY(${x}deg) rotateX(${-y}deg)`;
 
-        });
+});
 
-        document.addEventListener("mouseleave",()=>{
+document.addEventListener("mouseleave",()=>{
 
-            profile.style.transform=
+profile.style.transform=
 
-            "rotateY(0deg) rotateX(0deg)";
+"rotateY(0deg) rotateX(0deg)";
 
-        });
+});
 
-    }
+}
+            /*=========================
+      Counter Animation
+=========================*/
 
-    /* ==========================
-        افکت دکمه‌ها
-    ========================== */
+const counters=document.querySelectorAll(".stat h2");
 
-    document.querySelectorAll(".chip").forEach(chip=>{
+const runCounter=(counter,target,suffix="")=>{
 
-        chip.addEventListener("mouseenter",()=>{
+let count=0;
 
-            chip.style.transform="translateY(-8px) scale(1.03)";
+const step=Math.ceil(target/60);
 
-        });
+const timer=setInterval(()=>{
 
-        chip.addEventListener("mouseleave",()=>{
+count+=step;
 
-            chip.style.transform="translateY(0) scale(1)";
+if(count>=target){
 
-        });
+count=target;
 
-    });
+clearInterval(timer);
 
-    /* ==========================
-        افکت آمار
-    ========================== */
+}
 
-    document.querySelectorAll(".stat").forEach(card=>{
+counter.innerHTML=count+suffix;
 
-        card.addEventListener("mouseenter",()=>{
+},25);
 
-            card.style.transform="translateY(-8px)";
+};
 
-        });
+const statObserver=new IntersectionObserver((entries)=>{
 
-        card.addEventListener("mouseleave",()=>{
+entries.forEach(entry=>{
 
-            card.style.transform="translateY(0)";
+if(entry.isIntersecting){
 
-        });
+const cards=document.querySelectorAll(".stat");
 
-    });
+runCounter(cards[0].querySelector("h2"),500,"+");
+
+runCounter(cards[1].querySelector("h2"),98,"%");
+
+runCounter(cards[2].querySelector("h2"),5,"+");
+
+cards[3].querySelector("h2").innerHTML="۹ تا ۲۴";
+
+statObserver.disconnect();
+
+}
+
+});
+
+});
+
+const stats=document.querySelector(".stats");
+
+if(stats){
+
+statObserver.observe(stats);
+
+}
+
+/*=========================
+      Hover Effects
+=========================*/
+
+document.querySelectorAll(".chip").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-8px) scale(1.03)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0) scale(1)";
+
+});
+
+});
 
 });
