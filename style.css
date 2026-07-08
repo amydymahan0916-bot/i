@@ -1,119 +1,133 @@
-/* ==================================
-            RESET
-================================== */
+/*==================================
+        ILIA FOREX V9
+==================================*/
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Vazirmatn",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Vazirmatn",sans-serif;
 }
 
 :root{
 
-    --bg:#050505;
-    --card:rgba(255,255,255,.05);
-    --border:rgba(255,255,255,.08);
+--bg:#050505;
+--bg2:#0b0b0b;
 
-    --green:#00ff88;
-    --green2:#00d26f;
+--green:#00ff88;
+--green2:#00d66f;
 
-    --gold:#ffd84d;
+--gold:#ffd84d;
 
-    --white:#ffffff;
-    --text:#bdbdbd;
+--white:#fff;
+--text:#c7c7c7;
+
+--glass:rgba(255,255,255,.05);
+--border:rgba(255,255,255,.08);
 
 }
 
 html{
 
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 
 }
 
 body{
 
-    background:var(--bg);
-    color:#fff;
-    overflow-x:hidden;
+background:var(--bg);
+
+color:#fff;
+
+overflow-x:hidden;
 
 }
 
-/* ==================================
-          BACKGROUND
-================================== */
+/*=========================
+        BACKGROUND
+=========================*/
 
 .background{
 
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    z-index:-100;
+position:fixed;
 
-    background:
-    linear-gradient(180deg,#050505,#090909,#050505);
+inset:0;
+
+overflow:hidden;
+
+z-index:-100;
+
+background:
+linear-gradient(180deg,#050505,#090909,#050505);
 
 }
 
 .grid{
 
-    position:absolute;
-    inset:0;
+position:absolute;
 
-    background-image:
+inset:0;
 
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+background-image:
 
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
 
-    background-size:60px 60px;
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 
-    mask-image:radial-gradient(circle,#fff 20%,transparent 85%);
+background-size:55px 55px;
+
+mask-image:radial-gradient(circle,#fff 20%,transparent 90%);
 
 }
 
 .blur{
 
-    position:absolute;
+position:absolute;
 
-    border-radius:50%;
+border-radius:50%;
 
-    filter:blur(140px);
+filter:blur(140px);
 
-    animation:float 10s infinite ease-in-out;
+animation:float 9s infinite ease-in-out;
 
 }
 
 .blur1{
 
-    width:420px;
-    height:420px;
+width:450px;
 
-    background:#00ff88;
+height:450px;
 
-    top:-170px;
-    left:-150px;
+background:#00ff88;
 
-    opacity:.15;
+top:-180px;
+
+left:-150px;
+
+opacity:.15;
 
 }
 
 .blur2{
 
-    width:360px;
-    height:360px;
+width:380px;
 
-    background:#ffd84d;
+height:380px;
 
-    bottom:-120px;
-    right:-100px;
+background:#ffd84d;
 
-    opacity:.12;
+right:-120px;
+
+bottom:-120px;
+
+opacity:.12;
+
+animation-delay:4s;
 
 }
-/* ==================================
+/*==================================
             HEADER
-================================== */
+==================================*/
 
 .header{
 
@@ -121,7 +135,7 @@ width:min(1300px,92%);
 
 margin:25px auto;
 
-padding:18px 28px;
+padding:18px 30px;
 
 display:flex;
 
@@ -131,7 +145,7 @@ align-items:center;
 
 background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(22px);
 
 border:1px solid rgba(255,255,255,.08);
 
@@ -143,15 +157,29 @@ top:20px;
 
 z-index:999;
 
+transition:.35s;
+
+}
+
+.header:hover{
+
+border-color:rgba(0,255,136,.30);
+
+box-shadow:0 0 40px rgba(0,255,136,.12);
+
 }
 
 .logo{
 
-font-size:30px;
+font-size:32px;
 
 font-weight:900;
 
-letter-spacing:.5px;
+display:flex;
+
+align-items:center;
+
+gap:10px;
 
 }
 
@@ -163,11 +191,13 @@ color:#fff;
 
 .logo small{
 
-color:var(--green);
-
 font-size:20px;
 
 font-weight:700;
+
+color:var(--green);
+
+letter-spacing:2px;
 
 }
 
@@ -183,13 +213,13 @@ padding:14px 24px;
 
 border-radius:50px;
 
-text-decoration:none;
-
-font-weight:700;
+background:linear-gradient(135deg,var(--green),var(--green2));
 
 color:#000;
 
-background:linear-gradient(135deg,var(--green),var(--green2));
+font-weight:800;
+
+text-decoration:none;
 
 transition:.35s;
 
@@ -197,9 +227,11 @@ transition:.35s;
 
 .instagram:hover{
 
-transform:translateY(-4px);
+transform:translateY(-5px);
 
-box-shadow:0 0 35px rgba(0,255,136,.35);
+box-shadow:
+
+0 0 35px rgba(0,255,136,.35);
 
 }
 
@@ -209,9 +241,9 @@ font-size:22px;
 
 }
 
-/* ==================================
-              HERO
-================================== */
+/*==================================
+            HERO
+==================================*/
 
 .hero{
 
@@ -221,7 +253,7 @@ margin:70px auto;
 
 display:grid;
 
-grid-template-columns:380px 1fr;
+grid-template-columns:370px 1fr;
 
 gap:60px;
 
@@ -249,15 +281,21 @@ padding:8px;
 
 border-radius:50%;
 
-background:linear-gradient(135deg,var(--green),var(--gold));
+background:
+
+linear-gradient(135deg,
+
+var(--green),
+
+var(--gold));
 
 animation:ring 6s linear infinite;
 
 box-shadow:
 
-0 0 35px rgba(0,255,136,.25),
+0 0 40px rgba(0,255,136,.25),
 
-0 0 80px rgba(255,216,77,.18);
+0 0 90px rgba(255,216,77,.18);
 
 }
 
@@ -267,11 +305,19 @@ width:100%;
 
 height:100%;
 
-border-radius:50%;
-
 object-fit:cover;
 
+border-radius:50%;
+
 border:6px solid #080808;
+
+transition:.5s;
+
+}
+
+.profile-ring:hover img{
+
+transform:scale(1.05);
 
 }
 
@@ -283,7 +329,7 @@ border:1px solid rgba(255,255,255,.08);
 
 border-radius:35px;
 
-padding:50px;
+padding:55px;
 
 backdrop-filter:blur(25px);
 
@@ -297,9 +343,9 @@ align-items:center;
 
 gap:10px;
 
-padding:12px 22px;
+padding:12px 20px;
 
-border-radius:50px;
+border-radius:40px;
 
 background:rgba(0,255,136,.10);
 
@@ -313,13 +359,13 @@ margin-bottom:25px;
 
 .hero-content h1{
 
-font-size:72px;
+font-size:70px;
 
 font-weight:900;
 
 line-height:1.1;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
@@ -329,11 +375,11 @@ display:block;
 
 font-size:34px;
 
-margin-top:12px;
-
-color:var(--gold);
+margin-top:10px;
 
 letter-spacing:3px;
+
+color:var(--gold);
 
 }
 
@@ -347,12 +393,12 @@ color:var(--text);
 
 max-width:700px;
 
-margin-bottom:40px;
+margin-bottom:35px;
 
             }
-/* ==================================
-          دکمه‌های خدمات
-================================== */
+/*==================================
+        دکمه‌های خدمات
+==================================*/
 
 .hero-buttons{
 
@@ -360,9 +406,9 @@ display:grid;
 
 grid-template-columns:repeat(4,1fr);
 
-gap:16px;
+gap:18px;
 
-margin-bottom:40px;
+margin-bottom:45px;
 
 }
 
@@ -370,57 +416,99 @@ margin-bottom:40px;
 
 display:flex;
 
-align-items:center;
-
 justify-content:center;
+
+align-items:center;
 
 gap:10px;
 
 padding:18px;
 
-border-radius:18px;
-
 background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-font-size:16px;
-
-font-weight:700;
+border-radius:20px;
 
 cursor:pointer;
 
+font-weight:700;
+
+font-size:16px;
+
 transition:.35s;
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.chip::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.15),
+
+transparent
+
+);
+
+transition:.7s;
+
+}
+
+.chip:hover::before{
+
+left:120%;
 
 }
 
 .chip i{
 
-color:var(--green);
-
 font-size:18px;
+
+color:var(--green);
 
 }
 
 .chip:hover{
 
-transform:translateY(-6px);
-
-background:rgba(0,255,136,.12);
+transform:translateY(-8px);
 
 border-color:var(--green);
 
+background:rgba(0,255,136,.10);
+
 box-shadow:
 
-0 0 30px rgba(0,255,136,.20);
+0 0 30px rgba(0,255,136,.25);
 
 }
 
-/* ==================================
-              آمار
-================================== */
+/*==================================
+            آمار
+==================================*/
 
 .stats{
 
@@ -434,19 +522,57 @@ gap:18px;
 
 .stat{
 
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:22px;
-
 padding:28px 20px;
 
 text-align:center;
 
+border-radius:22px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
 transition:.35s;
 
 backdrop-filter:blur(20px);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.stat::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+transparent,
+
+rgba(255,255,255,.06),
+
+transparent
+
+);
+
+opacity:0;
+
+transition:.35s;
+
+}
+
+.stat:hover::before{
+
+opacity:1;
 
 }
 
@@ -468,23 +594,23 @@ font-size:38px;
 
 font-weight:900;
 
-color:var(--green);
+margin-bottom:10px;
 
-margin-bottom:8px;
+color:var(--green);
 
 }
 
 .stat span{
 
-color:var(--text);
-
 font-size:15px;
+
+color:var(--text);
 
 }
 
-/* ==================================
-             انیمیشن‌ها
-================================== */
+/*==================================
+          انیمیشن‌ها
+==================================*/
 
 @keyframes ring{
 
@@ -512,7 +638,7 @@ transform:translate(0,0);
 
 50%{
 
-transform:translate(40px,-25px);
+transform:translate(45px,-30px);
 
 }
 
@@ -535,9 +661,9 @@ opacity:1;
 transform:translateY(0);
 
             }
-/* ==================================
+/*==================================
             درباره من
-================================== */
+==================================*/
 
 .about{
 
@@ -567,9 +693,9 @@ margin-bottom:12px;
 
 .section-title p{
 
-color:var(--text);
-
 font-size:17px;
+
+color:var(--text);
 
 }
 
@@ -579,19 +705,19 @@ background:rgba(255,255,255,.05);
 
 border:1px solid rgba(255,255,255,.08);
 
-border-radius:30px;
+backdrop-filter:blur(25px);
 
 padding:45px;
 
-backdrop-filter:blur(25px);
+border-radius:30px;
 
 text-align:center;
 
 line-height:2.2;
 
-color:var(--text);
-
 font-size:18px;
+
+color:var(--text);
 
 transition:.35s;
 
@@ -607,9 +733,9 @@ box-shadow:0 0 35px rgba(0,255,136,.18);
 
 }
 
-/* ==================================
-                FAQ
-================================== */
+/*==================================
+              FAQ
+==================================*/
 
 .faq{
 
@@ -653,10 +779,6 @@ border-color:var(--green);
 
 width:100%;
 
-background:none;
-
-border:none;
-
 padding:24px 28px;
 
 display:flex;
@@ -665,11 +787,15 @@ justify-content:space-between;
 
 align-items:center;
 
+background:none;
+
+border:none;
+
+color:#fff;
+
 font-size:18px;
 
 font-weight:700;
-
-color:#fff;
 
 cursor:pointer;
 
@@ -695,7 +821,7 @@ transition:max-height .45s ease;
 
 .faq-answer p{
 
-padding:0 28px 25px;
+padding:0 28px 24px;
 
 line-height:2;
 
@@ -715,27 +841,27 @@ transform:rotate(45deg);
 
 }
 
-/* ==================================
-               فوتر
-================================== */
+/*==================================
+              FOOTER
+==================================*/
 
 footer{
 
 width:min(1300px,92%);
 
-margin:80px auto 30px;
+margin:80px auto 35px;
 
 padding:35px 20px;
 
-border-top:1px solid rgba(255,255,255,.08);
-
 text-align:center;
+
+border-top:1px solid rgba(255,255,255,.08);
 
 }
 
 .footer-logo{
 
-font-size:28px;
+font-size:30px;
 
 font-weight:900;
 
@@ -749,43 +875,19 @@ color:var(--green);
 
 }
 
-.footer-instagram{
+footer p{
 
-display:inline-flex;
+color:#888;
 
-align-items:center;
+font-size:15px;
 
-gap:10px;
-
-margin-top:20px;
-
-padding:14px 24px;
-
-border-radius:50px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-text-decoration:none;
-
-color:#fff;
-
-transition:.35s;
+margin-top:10px;
 
 }
 
-.footer-instagram:hover{
-
-background:rgba(0,255,136,.10);
-
-border-color:var(--green);
-
-}
-
-/* ==================================
-            ریسپانسیو
-================================== */
+/*==================================
+          Responsive
+==================================*/
 
 @media(max-width:992px){
 
@@ -819,6 +921,12 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
+.hero-content{
+
+padding:35px;
+
+}
+
 .hero-content h1{
 
 font-size:48px;
@@ -827,7 +935,7 @@ font-size:48px;
 
 .hero-content h1 span{
 
-font-size:28px;
+font-size:26px;
 
 }
 
@@ -861,15 +969,33 @@ font-size:14px;
 
 }
 
-.instagram span{
+.hero{
 
-display:none;
+margin:45px auto;
 
 }
 
 .hero-content{
 
-padding:30px;
+padding:25px;
+
+}
+
+.hero-content h1{
+
+font-size:36px;
+
+}
+
+.hero-content h1 span{
+
+font-size:22px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
 
 }
 
@@ -882,18 +1008,6 @@ grid-template-columns:1fr;
 .stats{
 
 grid-template-columns:1fr;
-
-}
-
-.hero-content h1{
-
-font-size:38px;
-
-}
-
-.hero-content h1 span{
-
-font-size:24px;
 
 }
 
@@ -913,10 +1027,10 @@ font-size:16px;
 
 .faq-question{
 
-font-size:16px;
-
 padding:20px;
 
-}
+font-size:16px;
 
 }
+
+            }
