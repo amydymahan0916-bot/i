@@ -1,74 +1,77 @@
+/*==================================================
+                ILIA FOREX V10
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /*==============================
+            FAQ
+    ==============================*/
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+
+            faqItems.forEach(other => {
+
+                if (other !== item) {
+
+                    other.classList.remove("active");
+
+                }
+
+            });
+
+            item.classList.toggle("active");
+
+        });
+
+    });
+
+    /*==============================
+        Scroll Animation
+    ==============================*/
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    }, {
+
+        threshold:0.15
+
+    });
+
+    document.querySelectorAll(
+
+        ".hero,.about,.faq,.stat-card,.feature-card,.faq-item"
+
+    ).forEach(el=>{
+
+        el.classList.add("hidden");
+
+        observer.observe(el);
+
+    });
+
+});
 /*=========================================
-        ILIA FOREX REBORN
+        افکت سه‌بعدی عکس
 =========================================*/
 
-document.addEventListener("DOMContentLoaded",()=>{
-
-/*==========================
-        FAQ
-==========================*/
-
-const faq=document.querySelectorAll(".faq-item");
-
-faq.forEach(item=>{
-
-const btn=item.querySelector(".faq-question");
-
-btn.addEventListener("click",()=>{
-
-faq.forEach(other=>{
-
-if(other!==item){
-
-other.classList.remove("active");
-
-}
-
-});
-
-item.classList.toggle("active");
-
-});
-
-});
-
-/*==========================
-    Scroll Animation
-==========================*/
-
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-threshold:.15
-});
-
-document.querySelectorAll(
-
-".hero,.about,.faq,.stat-card,.feature-card,.hero-btn"
-
-).forEach(el=>{
-
-el.classList.add("hidden");
-
-observer.observe(el);
-
-});
-
-/*==========================
-      Profile Effect
-==========================*/
-
-const profile=document.querySelector(".profile-ring");
+const profile = document.querySelector(".profile-ring");
 
 if(profile){
 
@@ -79,7 +82,6 @@ const x=(window.innerWidth/2-e.clientX)/45;
 const y=(window.innerHeight/2-e.clientY)/45;
 
 profile.style.transform=
-
 `rotateY(${x}deg) rotateX(${-y}deg)`;
 
 });
@@ -87,81 +89,137 @@ profile.style.transform=
 document.addEventListener("mouseleave",()=>{
 
 profile.style.transform=
-
 "rotateY(0deg) rotateX(0deg)";
 
 });
 
 }
-        /*==========================
-      Counter
-==========================*/
 
-const cards=document.querySelectorAll(".stat-card h2");
+/*=========================================
+        شمارنده آمار
+=========================================*/
 
-let started=false;
+const counters=document.querySelectorAll(".stat-card h2");
 
-const counterObserver=new IntersectionObserver(entries=>{
+counters.forEach(counter=>{
 
-entries.forEach(entry=>{
+const target=counter.innerText;
 
-if(entry.isIntersecting && !started){
+const number=parseInt(target.replace(/\D/g,""));
 
-started=true;
+const suffix=target.replace(/[0-9]/g,"");
 
-animate(cards[0],500,"+");
+let count=0;
 
-animate(cards[1],98,"%");
-
-animate(cards[2],5,"+");
-
-cards[3].innerHTML="۱۰/۲۴";
-
-}
-
-});
-
-});
-
-const stats=document.querySelector(".stats");
-
-if(stats){
-
-counterObserver.observe(stats);
-
-}
-
-function animate(el,target,symbol){
-
-let n=0;
-
-const speed=Math.ceil(target/60);
+const speed=Math.max(10,Math.floor(number/80));
 
 const timer=setInterval(()=>{
 
-n+=speed;
+count+=speed;
 
-if(n>=target){
+if(count>=number){
 
-n=target;
+count=number;
 
 clearInterval(timer);
 
 }
 
-el.innerHTML=n+symbol;
+counter.innerText=count+suffix;
 
-},25);
+},20);
+
+});
+/*=========================================
+        Toast
+=========================================*/
+
+function showToast(text){
+
+const old=document.querySelector(".toast");
+
+if(old) old.remove();
+
+const toast=document.createElement("div");
+
+toast.className="toast";
+
+toast.innerHTML=text;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+
+toast.classList.add("show");
+
+},50);
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+setTimeout(()=>{
+
+toast.remove();
+
+},300);
+
+},2500);
 
 }
 
-/*==========================
-      Button Hover
-==========================*/
+/*=========================================
+    کپی اینستاگرام
+=========================================*/
+
+function copyInstagram(){
+
+navigator.clipboard.writeText("@iliafx_vip");
+
+showToast("✅ آیدی اینستاگرام کپی شد");
+
+}
+
+/*=========================================
+    افکت کلیک دکمه‌ها
+=========================================*/
+
+document.querySelectorAll(".hero-btn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.style.transform="scale(.95)";
+
+setTimeout(()=>{
+
+btn.style.transform="";
+
+},150);
+
+});
+
+});
+
+/*=========================================
+    سال خودکار فوتر
+=========================================*/
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.textContent=new Date().getFullYear();
+
+}
+/*=========================================
+        Hover Animation
+=========================================*/
 
 document.querySelectorAll(".hero-btn").forEach(btn=>{
 
 btn.addEventListener("mouseenter",()=>{
+
+btn.style.transition=".3s";
 
 btn.style.transform="translateY(-8px) scale(1.03)";
 
@@ -175,4 +233,62 @@ btn.style.transform="translateY(0) scale(1)";
 
 });
 
+/*=========================================
+        Smooth Scroll
+=========================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
 });
+
+}
+
+});
+
+});
+
+/*=========================================
+        Disable Drag Image
+=========================================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.draggable=false;
+
+});
+
+/*=========================================
+        Disable Right Click Image
+=========================================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.addEventListener("contextmenu",(e)=>{
+
+e.preventDefault();
+
+});
+
+});
+
+/*=========================================
+            Console Message
+=========================================*/
+
+console.log("%cILIA FOREX","color:#D4AF37;font-size:30px;font-weight:bold;");
+
+console.log("%cOfficial Website","color:#ffffff;font-size:16px;");
