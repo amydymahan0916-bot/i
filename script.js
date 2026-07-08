@@ -1,6 +1,5 @@
 /* ==========================================
-            ILIA FOREX
-            script.js
+            ILIA FOREX | V8
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,16 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     faqItems.forEach(item => {
 
-        const question = item.querySelector(".faq-question");
+        const button = item.querySelector(".faq-question");
 
-        if (!question) return;
-
-        question.addEventListener("click", () => {
+        button.addEventListener("click", () => {
 
             faqItems.forEach(other => {
 
                 if (other !== item) {
+
                     other.classList.remove("active");
+
                 }
 
             });
@@ -42,20 +41,25 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
+
                 entry.target.classList.add("show");
+
             }
 
         });
 
     }, {
-        threshold: 0.15
+        threshold:0.15
     });
 
     document.querySelectorAll(
-        ".hero,.about,.faq,.stat,.chip,.about-card,.faq-item"
-    ).forEach(el => {
+
+        ".hero,.about,.faq,.chip,.stat,.about-card,.faq-item"
+
+    ).forEach(el=>{
 
         el.classList.add("hidden");
+
         observer.observe(el);
 
     });
@@ -64,57 +68,70 @@ document.addEventListener("DOMContentLoaded", () => {
         افکت سه بعدی عکس
     ========================== */
 
-    const profile = document.querySelector(".profile-ring");
+    const profile=document.querySelector(".profile-ring");
 
-    if (profile) {
+    if(profile){
 
-        document.addEventListener("mousemove", (e) => {
+        document.addEventListener("mousemove",(e)=>{
 
-            const x = (window.innerWidth / 2 - e.clientX) / 45;
-            const y = (window.innerHeight / 2 - e.clientY) / 45;
+            const x=(window.innerWidth/2-e.clientX)/45;
 
-            profile.style.transform =
-                `rotateY(${x}deg) rotateX(${-y}deg)`;
+            const y=(window.innerHeight/2-e.clientY)/45;
+
+            profile.style.transform=
+
+            `rotateY(${x}deg) rotateX(${-y}deg)`;
 
         });
 
-        document.addEventListener("mouseleave", () => {
+        document.addEventListener("mouseleave",()=>{
 
-            profile.style.transform = "rotateY(0deg) rotateX(0deg)";
+            profile.style.transform=
+
+            "rotateY(0deg) rotateX(0deg)";
 
         });
 
     }
 
+    /* ==========================
+        افکت دکمه‌ها
+    ========================== */
+
+    document.querySelectorAll(".chip").forEach(chip=>{
+
+        chip.addEventListener("mouseenter",()=>{
+
+            chip.style.transform="translateY(-8px) scale(1.03)";
+
+        });
+
+        chip.addEventListener("mouseleave",()=>{
+
+            chip.style.transform="translateY(0) scale(1)";
+
+        });
+
+    });
+
+    /* ==========================
+        افکت آمار
+    ========================== */
+
+    document.querySelectorAll(".stat").forEach(card=>{
+
+        card.addEventListener("mouseenter",()=>{
+
+            card.style.transform="translateY(-8px)";
+
+        });
+
+        card.addEventListener("mouseleave",()=>{
+
+            card.style.transform="translateY(0)";
+
+        });
+
+    });
+
 });
-
-/* ==========================
-    کپی اینستاگرام
-========================== */
-
-function copyInstagram() {
-
-    navigator.clipboard.writeText("@iliafx_vip");
-
-    const toast = document.createElement("div");
-
-    toast.className = "toast";
-    toast.innerHTML = "✅ آیدی اینستاگرام کپی شد";
-
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.classList.add("show");
-    }, 50);
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
-
-    }, 2200);
-
-}
