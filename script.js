@@ -1,22 +1,22 @@
-/*==================================
-        ILIA FOREX V9
-==================================*/
+/*=========================================
+        ILIA FOREX REBORN
+=========================================*/
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-/*=========================
+/*==========================
         FAQ
-=========================*/
+==========================*/
 
-const faqItems=document.querySelectorAll(".faq-item");
+const faq=document.querySelectorAll(".faq-item");
 
-faqItems.forEach(item=>{
+faq.forEach(item=>{
 
-const question=item.querySelector(".faq-question");
+const btn=item.querySelector(".faq-question");
 
-question.addEventListener("click",()=>{
+btn.addEventListener("click",()=>{
 
-faqItems.forEach(other=>{
+faq.forEach(other=>{
 
 if(other!==item){
 
@@ -32,9 +32,9 @@ item.classList.toggle("active");
 
 });
 
-/*=========================
+/*==========================
     Scroll Animation
-=========================*/
+==========================*/
 
 const observer=new IntersectionObserver((entries)=>{
 
@@ -54,7 +54,7 @@ threshold:.15
 
 document.querySelectorAll(
 
-".hero,.about,.faq,.chip,.stat,.about-card,.faq-item"
+".hero,.about,.faq,.stat-card,.feature-card,.hero-btn"
 
 ).forEach(el=>{
 
@@ -64,9 +64,9 @@ observer.observe(el);
 
 });
 
-/*=========================
-    3D Profile Effect
-=========================*/
+/*==========================
+      Profile Effect
+==========================*/
 
 const profile=document.querySelector(".profile-ring");
 
@@ -93,53 +93,29 @@ profile.style.transform=
 });
 
 }
-            /*=========================
-      Counter Animation
-=========================*/
+        /*==========================
+      Counter
+==========================*/
 
-const counters=document.querySelectorAll(".stat h2");
+const cards=document.querySelectorAll(".stat-card h2");
 
-const runCounter=(counter,target,suffix="")=>{
+let started=false;
 
-let count=0;
-
-const step=Math.ceil(target/60);
-
-const timer=setInterval(()=>{
-
-count+=step;
-
-if(count>=target){
-
-count=target;
-
-clearInterval(timer);
-
-}
-
-counter.innerHTML=count+suffix;
-
-},25);
-
-};
-
-const statObserver=new IntersectionObserver((entries)=>{
+const counterObserver=new IntersectionObserver(entries=>{
 
 entries.forEach(entry=>{
 
-if(entry.isIntersecting){
+if(entry.isIntersecting && !started){
 
-const cards=document.querySelectorAll(".stat");
+started=true;
 
-runCounter(cards[0].querySelector("h2"),500,"+");
+animate(cards[0],500,"+");
 
-runCounter(cards[1].querySelector("h2"),98,"%");
+animate(cards[1],98,"%");
 
-runCounter(cards[2].querySelector("h2"),5,"+");
+animate(cards[2],5,"+");
 
-cards[3].querySelector("h2").innerHTML="۹ تا ۲۴";
-
-statObserver.disconnect();
+cards[3].innerHTML="۱۰/۲۴";
 
 }
 
@@ -151,15 +127,39 @@ const stats=document.querySelector(".stats");
 
 if(stats){
 
-statObserver.observe(stats);
+counterObserver.observe(stats);
 
 }
 
-/*=========================
-      Hover Effects
-=========================*/
+function animate(el,target,symbol){
 
-document.querySelectorAll(".chip").forEach(btn=>{
+let n=0;
+
+const speed=Math.ceil(target/60);
+
+const timer=setInterval(()=>{
+
+n+=speed;
+
+if(n>=target){
+
+n=target;
+
+clearInterval(timer);
+
+}
+
+el.innerHTML=n+symbol;
+
+},25);
+
+}
+
+/*==========================
+      Button Hover
+==========================*/
+
+document.querySelectorAll(".hero-btn").forEach(btn=>{
 
 btn.addEventListener("mouseenter",()=>{
 
